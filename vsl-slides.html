@@ -1,0 +1,1736 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MNP転売 × 3つの副業 VSLスライド</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0a0a1a;
+    color: #fff;
+    font-family: 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', 'Yu Gothic', sans-serif;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    user-select: none;
+  }
+
+  .slide {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    width: 100vw;
+    padding: 60px 80px;
+    animation: fadeIn 0.4s ease-in-out;
+  }
+
+  .slide.active { display: flex; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Chapter Title */
+  .slide.chapter-title {
+    background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3a 100%);
+    border-left: 6px solid #FFD700;
+  }
+  .slide.chapter-title h1 {
+    font-size: 2.8em;
+    color: #FFD700;
+    margin-bottom: 20px;
+  }
+  .slide.chapter-title h2 {
+    font-size: 2em;
+    color: #fff;
+    line-height: 1.5;
+  }
+
+  /* Typography */
+  h1 { font-size: 2.6em; line-height: 1.3; margin-bottom: 20px; font-weight: 900; }
+  h2 { font-size: 1.8em; line-height: 1.4; margin-bottom: 16px; font-weight: 700; color: #ccc; }
+  h3 { font-size: 1.5em; line-height: 1.4; margin-bottom: 12px; font-weight: 600; }
+  p  { font-size: 1.3em; line-height: 1.6; margin-bottom: 10px; }
+
+  /* Color Classes */
+  .gold { color: #FFD700; font-weight: 700; }
+  .red { color: #FF4444; font-weight: 700; }
+  .green { color: #00CC66; font-weight: 700; }
+  .highlight {
+    color: #fff;
+    background: linear-gradient(transparent 60%, rgba(255,215,0,0.3) 60%);
+    padding: 0 4px;
+    font-weight: 700;
+  }
+
+  /* Sub text */
+  .sub { font-size: 0.95em !important; color: #888; margin-top: 8px; }
+
+  /* Slide List */
+  .slide-list {
+    list-style: none;
+    text-align: left;
+    margin: 20px 0;
+  }
+  .slide-list li {
+    font-size: 1.2em;
+    line-height: 1.8;
+    padding: 6px 0 6px 30px;
+    position: relative;
+  }
+  .slide-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 14px;
+    width: 10px;
+    height: 10px;
+    background: #FFD700;
+    border-radius: 50%;
+  }
+
+  /* Slide Table */
+  .slide-table {
+    border-collapse: collapse;
+    margin: 20px auto;
+    font-size: 1.1em;
+    min-width: 500px;
+  }
+  .slide-table th {
+    background: rgba(255,215,0,0.15);
+    color: #FFD700;
+    padding: 12px 24px;
+    border: 1px solid rgba(255,215,0,0.3);
+    font-weight: 700;
+  }
+  .slide-table td {
+    padding: 10px 24px;
+    border: 1px solid rgba(255,255,255,0.15);
+    color: #ddd;
+  }
+  .slide-table tr:hover td { background: rgba(255,255,255,0.05); }
+
+  /* Steps */
+  .steps {
+    display: flex;
+    gap: 20px;
+    margin: 24px 0;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .step {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,215,0,0.3);
+    border-radius: 12px;
+    padding: 20px 28px;
+    min-width: 160px;
+    max-width: 240px;
+    flex: 1;
+    text-align: center;
+  }
+  .step h3 {
+    color: #FFD700;
+    font-size: 1em;
+    margin-bottom: 8px;
+  }
+  .step p {
+    font-size: 1em;
+    margin-bottom: 4px;
+  }
+
+  /* Navigation Bar */
+  .nav-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background: rgba(10,10,26,0.95);
+    border-top: 1px solid rgba(255,215,0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    z-index: 100;
+  }
+  .nav-bar .slide-counter {
+    color: #FFD700;
+    font-size: 0.9em;
+    font-weight: 700;
+  }
+  .nav-bar .nav-buttons {
+    display: flex;
+    gap: 10px;
+  }
+  .nav-bar button {
+    background: rgba(255,215,0,0.15);
+    border: 1px solid rgba(255,215,0,0.4);
+    color: #FFD700;
+    padding: 6px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: 600;
+    transition: all 0.2s;
+  }
+  .nav-bar button:hover {
+    background: rgba(255,215,0,0.3);
+  }
+  .nav-bar .chapter-info {
+    color: #888;
+    font-size: 0.85em;
+    max-width: 400px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* Progress Bar */
+  .progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #FFD700, #FF8C00);
+    transition: width 0.3s ease;
+    z-index: 100;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .slide { padding: 40px 30px; }
+    h1 { font-size: 1.8em; }
+    h2 { font-size: 1.3em; }
+    h3 { font-size: 1.1em; }
+    p  { font-size: 1em; }
+    .slide-table { min-width: auto; font-size: 0.9em; }
+    .slide-table th, .slide-table td { padding: 8px 12px; }
+    .steps { flex-direction: column; align-items: center; }
+    .step { max-width: 100%; min-width: auto; }
+  }
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- ============================================ -->
+<!-- 第1章：オープニング（0:00〜2:00）6スライド -->
+<!-- ============================================ -->
+
+<div class="slide chapter-title">
+  <h1>第1章</h1>
+  <h2>オープニング</h2>
+  <p class="sub">0:00〜2:00</p>
+</div>
+
+<div class="slide">
+  <h1><span class="gold">30日</span>で<span class="gold">80万円</span>を手にする</h1>
+  <h2>"非常識な方法"</h2>
+</div>
+
+<div class="slide">
+  <p>スキルなし、人脈なし、資金なし...</p>
+  <h1>それでも<span class="highlight">「確実に」</span>結果が出る</h1>
+  <p class="sub">そんな唯一の方法を、あなたは知っていますか？</p>
+</div>
+
+<div class="slide">
+  <h2>こんな悩み、ありませんか？</h2>
+  <ul class="slide-list">
+    <li><span class="red">毎月の給料だけでは生活が苦しい...</span></li>
+    <li><span class="red">副業を始めたいけど、何から手をつければいいか分からない...</span></li>
+    <li><span class="red">ネットビジネスに挑戦したけど、全く稼げなかった...</span></li>
+    <li><span class="red">家族に楽をさせてあげたいのに、自分に力がない...</span></li>
+  </ul>
+</div>
+
+<div class="slide">
+  <p>特別なスキルも、莫大な資金も、人脈も一切不要</p>
+  <h1>「椅子に座っているだけ」で</h1>
+  <h1>月収<span class="gold">80万円</span>以上</h1>
+</div>
+
+<div class="slide">
+  <h2>「そんなうまい話があるわけない...」</h2>
+  <p>そう思われるのも無理はありません。</p>
+  <p class="sub"><span class="green">安心してください。今からその全てを証明します。</span></p>
+</div>
+
+<!-- ============================================ -->
+<!-- 第2章：自己紹介と実績（2:00〜5:00）8スライド -->
+<!-- ============================================ -->
+
+<div class="slide chapter-title">
+  <h1>第2章</h1>
+  <h2>自己紹介と実績</h2>
+  <p class="sub">2:00〜5:00</p>
+</div>
+
+<div class="slide">
+  <h2><span class="gold">11年前</span>の私</h2>
+  <h1>借金<span class="red">250万円</span></h1>
+  <p>シェアハウスで<span class="red">4人の経営者と雑魚寝</span>する日々</p>
+</div>
+
+<div class="slide">
+  <h2>当時の生活</h2>
+  <p>収入はたったの<span class="red">18万円</span></p>
+  <p>家賃<span class="gold">6万5000円</span>を<span class="gold">4人</span>で分割</p>
+  <p class="sub">収入の大半は借金返済に消え、食べるものにも困る毎日</p>
+</div>
+
+<div class="slide">
+  <h2>ネットビジネスに挑戦するも...</h2>
+  <h1><span class="red">1年間</span>結果ゼロ</h1>
+  <p>次から次へと塾に入っては挫折</p>
+  <p class="sub">ノウハウコレクターとして借金だけが増えていく...</p>
+</div>
+
+<div class="slide">
+  <h2><span class="green">でも今は...</span></h2>
+  <ul class="slide-list">
+    <li><span class="green">平日にフランス・パリで友人の結婚式に参加</span></li>
+    <li><span class="green">思い立った瞬間に北海道へ3泊4日の旅行</span></li>
+    <li><span class="green">グランピングで家族との時間を心ゆくまで楽しむ</span></li>
+  </ul>
+  <p class="sub">時間とお金に縛られない、本当の自由を手に入れました</p>
+</div>
+
+<div class="slide">
+  <h1>池田 宜史</h1>
+  <p>合同会社アドマーケティング 代表</p>
+  <p class="sub">MNP転売のプロフェッショナル</p>
+</div>
+
+<div class="slide">
+  <h2>現在の実績</h2>
+  <p>毎月 <span class="gold">150万円〜400万円</span> の利益を安定して稼ぎ続ける</p>
+  <h1>最高月商 <span class="gold">2,000万円</span></h1>
+</div>
+
+<div class="slide">
+  <h2>教え子たちの実績</h2>
+  <h1><span class="gold">500人</span>以上の教え子</h1>
+  <p>月利 <span class="gold">30万円〜200万円</span> を稼ぎ続けている</p>
+  <p class="sub">8割が完全初心者からのスタート</p>
+</div>
+
+<!-- ============================================ -->
+<!-- 第3章：共感パート（5:00〜10:00）8スライド -->
+<!-- ============================================ -->
+
+<div class="slide chapter-title">
+  <h1>第3章</h1>
+  <h2>共感パート</h2>
+  <p class="sub">5:00〜10:00</p>
+</div>
+
+<div class="slide">
+  <h2>あなたは今、こんな毎日を送っていませんか？</h2>
+  <ul class="slide-list">
+    <li>朝、目覚ましで重い体を引きずって起き上がる</li>
+    <li>満員電車に揺られ、上司の理不尽に耐える</li>
+    <li>残業して帰宅は<span class="red">夜10時</span></li>
+    <li>コンビニ弁当をかき込み、シャワーを浴びて寝るだけ</li>
+  </ul>
+</div>
+
+<div class="slide">
+  <h1><span class="red">「このまま定年まで</span></h1>
+  <h1><span class="red">働き続けるのか...」</span></h1>
+  <p class="sub">家族との時間も、自分の夢も、全部諦めるしかないのか...</p>
+</div>
+
+<div class="slide">
+  <h2>アフィリエイトに挑戦</h2>
+  <h1><span class="red">3ヶ月</span>経っても収益<span class="red">ゼロ</span></h1>
+  <p class="sub">意気込んでブログを始めたのに...</p>
+</div>
+
+<div class="slide">
+  <h2>転売に挑戦</h2>
+  <h1>仕入れた商品が売れず<span class="red">在庫の山</span></h1>
+  <p class="sub">メルカリやAmazonに出品しても...</p>
+</div>
+
+<div class="slide">
+  <h2>FX・仮想通貨に挑戦</h2>
+  <h1>大切な貯金が<span class="red">溶けていた...</span></h1>
+  <p class="sub">一攫千金を夢見て手を出した結果...</p>
+</div>
+
+<div class="slide">
+  <h1><span class="red">「自分には才能がないんだ...」</span></h1>
+  <h2><span class="red">「やっぱり普通の人間には無理なんだ...」</span></h2>
+</div>
+
+<div class="slide">
+  <h1><span class="green">あなたが稼げないのは</span></h1>
+  <h1><span class="green">あなたのせいではありません。</span></h1>
+  <p class="sub">本当の原因は、別のところにあります</p>
+</div>
+
+<!-- ============================================ -->
+<!-- 第4章：なぜ稼げないのか（10:00〜13:00）5スライド -->
+<!-- ============================================ -->
+
+<div class="slide chapter-title">
+  <h1>第4章</h1>
+  <h2>なぜ稼げないのか</h2>
+  <p class="sub">10:00〜13:00</p>
+</div>
+
+<div class="slide">
+  <h2>多くの人が副業で失敗する理由</h2>
+  <h1><span class="highlight">「難しすぎる方法」</span>を選んでいるから</h1>
+</div>
+
+<div class="slide">
+  <h2>各副業に必要なスキル</h2>
+  <table class="slide-table">
+    <tr>
+      <th>副業</th>
+      <th>必要なスキル</th>
+    </tr>
+    <tr>
+      <td>アフィリエイト</td>
+      <td>SEO / ライティング / マーケティング知識</td>
+    </tr>
+    <tr>
+      <td>転売</td>
+      <td>リサーチ力 / 仕入れ資金 / 在庫管理</td>
+    </tr>
+    <tr>
+      <td>株・FX</td>
+      <td>専門知識 / チャート分析 / メンタル管理</td>
+    </tr>
+  </table>
+  <p class="sub">高度なスキルか多額の資金、またはその両方が必須</p>
+</div>
+
+<div class="slide">
+  <h2>スキル習得にかかる時間</h2>
+  <h1><span class="red">半年〜数年</span></h1>
+  <p>サラリーマンとして働きながら</p>
+  <p>限られた時間でスキルを習得するのは</p>
+  <p><span class="red">ほぼ不可能</span></p>
+</div>
+
+<div class="slide">
+  <h2><span class="red">このまま何もしなければ...</span></h2>
+  <ul class="slide-list">
+    <li><span class="red">物価は上がり続けるのに、給料は増えない</span></li>
+    <li><span class="red">年金だけでは老後の生活は送れない</span></li>
+    <li><span class="red">終身雇用は崩壊、いつリストラされるか分からない</span></li>
+    <li><span class="red">40代、50代で路頭に迷っても、もう誰も助けてくれない</span></li>
+  </ul>
+</div>
+
+<!-- ============================================ -->
+<!-- 第5章：MNP転売とは何か（13:00〜18:00）6スライド -->
+<!-- ============================================ -->
+
+<div class="slide chapter-title">
+  <h1>第5章</h1>
+  <h2>MNP転売とは何か</h2>
+  <p class="sub">13:00〜18:00</p>
+</div>
+
+<div class="slide">
+  <h1>MNP転売とは？</h1>
+  <p>大手キャリアの</p>
+  <p><span class="highlight">「乗り換えキャンペーン」</span>を活用して</p>
+  <p>利益を得る方法</p>
+</div>
+
+<div class="slide">
+  <h2>たった<span class="gold">4ステップ</span>で完了</h2>
+  <div class="steps">
+    <div class="step">
+      <h3>STEP 1</h3>
+      <p>格安SIMを契約する</p>
+      <p class="sub">楽天モバイル・イオンモバイルなど</p>
+    </div>
+    <div class="step">
+      <h3>STEP 2</h3>
+      <p>大手キャリアに乗り換える（MNP）</p>
+      <p class="sub">ドコモ・au・ソフトバンク</p>
+    </div>
+    <div class="step">
+      <h3>STEP 3</h3>
+      <p>キャッシュバック・商品券を受け取る</p>
+      <p class="sub">高額キャッシュバックがもらえる</p>
+    </div>
+    <div class="step">
+      <h3>STEP 4</h3>
+      <p>買取屋で現金化する</p>
+      <p class="sub">商品券やゲーム機を売却</p>
+    </div>
+  </div>
+</div>
+
+<div class="slide">
+  <h2>たったこれだけで</h2>
+  <h1>1回線あたり <span class="gold">2万〜6万円</span> の利益</h1>
+</div>
+
+<div class="slide">
+  <h2>なぜそんなことが可能なのか？</h2>
+  <p class="sub">大手キャリアの「インセンティブ構造」</p>
+  <table class="slide-table">
+    <tr>
+      <th>契約タイプ</th>
+      <th>インセンティブ</th>
+    </tr>
+    <tr>
+      <td>MNP（乗り換え）</td>
+      <td><span class="gold">100</span></td>
+    </tr>
+    <tr>
+      <td>新規契約</td>
+      <td>80</td>
+    </tr>
+    <tr>
+      <td>機種変更</td>
+      <td>60</td>
+    </tr>
+    <tr>
+      <td>端末のみ購入</td>
+      <td>40</td>
+    </tr>
+  </table>
+  <p class="sub">MNPが最も高いインセンティブを受け取れる</p>
+</div>
+
+<div class="slide">
+  <h1><span class="green">「椅子に座っているだけ」</span></h1>
+  <h2>で稼げてしまう</h2>
+  <p class="sub">販売店がキャンペーンで顧客を奪い合う仕組みを活用するだけ</p>
+</div>
+
+<!-- ============================================ -->
+<!-- 第6章：合法性の説明（18:00〜22:00）5スライド -->
+<!-- ============================================ -->
+
+<div class="slide chapter-title">
+  <h1>第6章</h1>
+  <h2>合法性の説明</h2>
+  <p class="sub">18:00〜22:00</p>
+</div>
+
+<div class="slide">
+  <h1>MNP転売は<span class="green">完全に合法</span>です</h1>
+  <p>大手キャリアの公式キャンペーンを利用しているだけ</p>
+  <p class="sub">法的に全く問題ありません</p>
+</div>
+
+<div class="slide">
+  <h2><span class="red">注意：SNS上の詐欺に騙されないで</span></h2>
+  <p>「iPhone14が<span class="red">2円</span>で買える！」</p>
+  <p class="sub">→ 実際は22ヶ月後に端末返却が前提</p>
+  <p class="sub">→ 途中解約で<span class="red">72,753円</span>の支払い義務が発生</p>
+  <p><span class="red">これらは100%詐欺です</span></p>
+</div>
+
+<div class="slide">
+  <h2>私の手法の<span class="highlight">3つの絶対ルール</span></h2>
+  <div class="steps">
+    <div class="step">
+      <h3>ルール 1</h3>
+      <p><span class="highlight">分割払い案件は一切行わない</span></p>
+      <p class="sub">SIMカードのみの契約でキャッシュバックを受け取る</p>
+    </div>
+    <div class="step">
+      <h3>ルール 2</h3>
+      <p><span class="highlight">ゲーム機を購入して買取屋に売却</span></p>
+      <p class="sub">Nintendo SwitchやPS5を商品券で購入し現金化</p>
+    </div>
+    <div class="step">
+      <h3>ルール 3</h3>
+      <p><span class="highlight">総額を必ず表記</span></p>
+      <p class="sub">例外的にスマホを扱う場合も総額を明記</p>
+    </div>
+  </div>
+</div>
+
+<div class="slide">
+  <h1>赤字リスク <span class="green">ゼロ</span></h1>
+  <ul class="slide-list">
+    <li><span class="green">分割払いを組むことは一切なし</span></li>
+    <li><span class="green">大赤字になるリスクはゼロ</span></li>
+    <li><span class="green">信用情報に傷がつく心配もなし</span></li>
+  </ul>
+</div>
+
+<!-- ============================================ -->
+<!-- 第7章：具体的な数字（22:00〜25:00）4スライド -->
+<!-- ============================================ -->
+
+<div class="slide chapter-title">
+  <h1>第7章</h1>
+  <h2>具体的な数字</h2>
+  <p class="sub">22:00〜25:00</p>
+</div>
+
+<div class="slide">
+  <h2>個人名義の場合</h2>
+  <table class="slide-table">
+    <tr>
+      <th>項目</th>
+      <th>金額</th>
+    </tr>
+    <tr>
+      <td>初月</td>
+      <td><span class="gold">80万円</span>以上</td>
+    </tr>
+    <tr>
+      <td>年2回実施</td>
+      <td>年間 <span class="gold">160万円</span>以上</td>
+    </tr>
+    <tr>
+      <td>現金化スピード</td>
+      <td><span class="gold">最短1日</span></td>
+    </tr>
+  </table>
+</div>
+
+<div class="slide">
+  <h2>家族名義を活用した場合</h2>
+  <table class="slide-table">
+    <tr>
+      <th>家族構成</th>
+      <th>初月</th>
+      <th>年間</th>
+    </tr>
+    <tr>
+      <td>夫婦2人</td>
+      <td><span class="gold">160万円</span></td>
+      <td><span class="gold">320万円</span></td>
+    </tr>
+    <tr>
+      <td>3人家族</td>
+      <td><span class="gold">240万円</span></td>
+      <td><span class="gold">480万円</span></td>
+    </tr>
+  </table>
+  <p class="sub">名義を増やすだけで収益が倍増する</p>
+</div>
+
+<div class="slide">
+  <h2>法人名義の場合</h2>
+  <table class="slide-table">
+    <tr>
+      <th>法人数</th>
+      <th>年間収益</th>
+    </tr>
+    <tr>
+      <td>1社</td>
+      <td><span class="gold">280万円</span></td>
+    </tr>
+    <tr>
+      <td>2社</td>
+      <td><span class="gold">560万円</span></td>
+    </tr>
+    <tr>
+      <td>3社</td>
+      <td><span class="gold">840万円</span></td>
+    </tr>
+  </table>
+  <p class="sub">法人を追加するほど収益が積み上がる</p>
+</div>
+
+<!-- ============================================ -->
+<!-- 第8章：成功事例（25:00〜28:00）5スライド -->
+<!-- ============================================ -->
+
+<div class="slide chapter-title">
+  <h1>第8章</h1>
+  <h2>成功事例</h2>
+  <p class="sub">25:00〜28:00</p>
+</div>
+
+<div class="slide">
+  <h2>福岡県・H氏（8人家族）</h2>
+  <h1>稼いだ金額：<span class="gold">168万円</span></h1>
+  <p>純利益：<span class="gold">61万円</span></p>
+  <p class="sub">仕入資金を差し引いた額</p>
+</div>
+
+<div class="slide">
+  <h2>神奈川県・Y氏（法人+個人名義）</h2>
+  <h1>稼いだ金額：<span class="gold">150万円</span></h1>
+  <p class="sub">たった<span class="gold">2ヶ月</span>で達成</p>
+</div>
+
+<div class="slide">
+  <h2>その他の成功事例</h2>
+  <table class="slide-table">
+    <tr>
+      <th>名前</th>
+      <th>稼いだ金額</th>
+    </tr>
+    <tr>
+      <td>Aさん</td>
+      <td><span class="gold">48万円</span></td>
+    </tr>
+    <tr>
+      <td>Bさん</td>
+      <td><span class="gold">77万円</span></td>
+    </tr>
+    <tr>
+      <td>Cさん</td>
+      <td><span class="gold">40万円</span></td>
+    </tr>
+    <tr>
+      <td>Dさん</td>
+      <td><span class="gold">21万円</span></td>
+    </tr>
+  </table>
+</div>
+
+<div class="slide">
+  <h1>教え子 <span class="gold">500人</span>以上</h1>
+  <p><span class="gold">8割</span>が<span class="highlight">初心者</span>からのスタート</p>
+  <p>ほぼ全員が月利 <span class="gold">30万〜200万円</span> を達成</p>
+  <p class="sub">初心者でも確実に結果が出るビジネスモデル</p>
+</div>
+
+<!-- ============================================ -->
+<!-- 第9章：MNP転売「7つのメリット」（28:00〜35:00） -->
+<!-- ============================================ -->
+
+<div class="slide chapter-title">
+  <h1>第9章</h1>
+  <h2>MNP転売<br><span class="gold">7つのメリット</span></h2>
+  <p class="sub">28:00〜35:00</p>
+</div>
+
+<div class="slide">
+  <h2>メリット1</h2>
+  <h3>再現性が<span class="highlight">異常に高い</span></h3>
+  <p class="sub">やれば誰でも同じ結果が出る</p>
+</div>
+
+<div class="slide">
+  <h2>一般的なビジネスに必要なもの</h2>
+  <ul class="slide-list">
+    <li>マーケティングスキル</li>
+    <li>ライティングスキル</li>
+    <li>デザインスキル</li>
+    <li>営業スキル</li>
+  </ul>
+  <p><span class="red">全て不要</span></p>
+</div>
+
+<div class="slide">
+  <h2>MNP転売に必要なもの</h2>
+  <p>椅子に座って<br><span class="highlight">言われた通りにやるだけ</span></p>
+  <p class="sub">年齢・学歴・経験 一切関係なし</p>
+</div>
+
+<div class="slide">
+  <h2>メリット2</h2>
+  <h3>お金が入ってくるスピードが<span class="highlight">異常</span></h3>
+  <p>最短<span class="gold">1日</span>で現金化</p>
+</div>
+
+<div class="slide">
+  <h2>キャッシュフローの比較</h2>
+  <table class="slide-table">
+    <tr><th>副業</th><th>入金までの期間</th></tr>
+    <tr><td>アフィリエイト</td><td><span class="red">2〜3ヶ月</span></td></tr>
+    <tr><td>物販・転売</td><td><span class="red">1〜2週間</span></td></tr>
+    <tr><td>MNP転売</td><td><span class="gold">最短1日</span></td></tr>
+  </table>
+  <p class="sub">先にお金が入り、費用は翌月以降</p>
+</div>
+
+<div class="slide">
+  <h2>メリット3</h2>
+  <h3>損失リスクが<span class="green">極めて低い</span></h3>
+  <p>SIMのみ契約 = <span class="highlight">赤字構造なし</span></p>
+  <p class="sub">維持費は月<span class="gold">300〜2,000円</span>程度</p>
+</div>
+
+<div class="slide">
+  <h2>メリット4</h2>
+  <h3>収益の見通しが<span class="green">立てやすい</span></h3>
+  <p>やる前から<span class="highlight">利益額が計算できる</span></p>
+  <p class="sub">ギャンブル性 = <span class="gold">ゼロ</span></p>
+</div>
+
+<div class="slide">
+  <h2>メリット5</h2>
+  <h3>名義を増やすだけで<span class="gold">収益倍増</span></h3>
+</div>
+
+<div class="slide">
+  <h2>名義数と収益の関係</h2>
+  <table class="slide-table">
+    <tr><th>名義</th><th>月収</th></tr>
+    <tr><td>1人（個人）</td><td><span class="gold">80万円</span></td></tr>
+    <tr><td>夫婦2人</td><td><span class="gold">160万円</span></td></tr>
+    <tr><td>3人家族</td><td><span class="gold">240万円</span></td></tr>
+  </table>
+  <p class="sub">名義を増やすだけで、そのまま倍増する</p>
+</div>
+
+<div class="slide">
+  <h2>メリット6</h2>
+  <h3>副業との相性が<span class="green">抜群</span></h3>
+  <ul class="slide-list">
+    <li>店舗に行く日だけ動けばOK</li>
+    <li>毎日の作業は<span class="highlight">発生しない</span></li>
+    <li>土日だけでも十分取り組める</li>
+  </ul>
+</div>
+
+<div class="slide">
+  <h2>メリット7</h2>
+  <h3>市場が構造的に<span class="green">なくならない</span></h3>
+  <p><span class="gold">2006年</span>から続く市場構造</p>
+  <p class="sub">ドコモ・au・ソフトバンクの競争がある限り永続</p>
+</div>
+
+<div class="slide">
+  <h2>MNP転売 <span class="gold">7つのメリット</span> まとめ</h2>
+  <ul class="slide-list">
+    <li>1. 再現性が異常に高い</li>
+    <li>2. 最短1日で現金化</li>
+    <li>3. 損失リスクが極めて低い</li>
+    <li>4. 事前に利益額がわかる</li>
+    <li>5. 名義を増やすだけで収益倍増</li>
+    <li>6. 副業との相性が抜群</li>
+    <li>7. 市場が構造的になくならない</li>
+  </ul>
+</div>
+
+<!-- ============================================ -->
+<!-- 第10章：池田モバイル（35:00〜38:00） -->
+<!-- ============================================ -->
+
+<div class="slide chapter-title">
+  <h1>第10章</h1>
+  <h2><span class="gold">池田モバイル</span></h2>
+  <p class="sub">35:00〜38:00</p>
+</div>
+
+<div class="slide">
+  <h2>一般的な格安SIM vs <span class="gold">池田モバイル</span></h2>
+  <table class="slide-table">
+    <tr><th>項目</th><th>一般的な格安SIM</th><th>池田モバイル</th></tr>
+    <tr><td>回線数上限</td><td><span class="red">5回線まで</span></td><td><span class="gold">無制限</span></td></tr>
+    <tr><td>月額費用</td><td><span class="red">3,000〜7,000円</span></td><td><span class="gold">約300円</span></td></tr>
+    <tr><td>予約番号発行</td><td><span class="red">数日</span></td><td><span class="gold">最短1時間</span></td></tr>
+    <tr><td>審査落ちリスク</td><td><span class="red">あり</span></td><td><span class="gold">ゼロ</span></td></tr>
+    <tr><td>クレジットカード</td><td><span class="red">必須</span></td><td><span class="gold">不要</span></td></tr>
+  </table>
+</div>
+
+<div class="slide">
+  <h2>池田モバイルの効果</h2>
+  <p>MNP転売の契約スピードが</p>
+  <p><span class="gold">2倍以上</span>に加速</p>
+  <p class="sub">回線数の制限なし・審査落ちゼロ・即日発行</p>
+</div>
+
+<!-- ============================================ -->
+<!-- 第11章：MNP転売の「2つの弱点」（38:00〜43:00） -->
+<!-- ============================================ -->
+
+<div class="slide chapter-title">
+  <h1>第11章</h1>
+  <h2>しかし…<br>MNP転売には<br><span class="red">"弱点"</span>があります</h2>
+  <p class="sub">38:00〜43:00</p>
+</div>
+
+<div class="slide">
+  <h2><span class="red">弱点 1</span></h2>
+  <h3>ランニングコスト（維持費）がかかる</h3>
+  <p class="sub">契約したSIMカードが机の引き出しに山積み…</p>
+  <p class="sub">毎月の請求を見てため息をつく日々</p>
+</div>
+
+<div class="slide">
+  <h2>はっきり言います</h2>
+  <p>その状態は</p>
+  <p><span class="red">「現金をドブに捨てている」</span></p>
+  <p>のと同じです</p>
+</div>
+
+<div class="slide">
+  <h2><span class="red">弱点 2</span></h2>
+  <h3>MNPは<span class="red">「年2回」</span>しかできない</h3>
+  <p class="sub">大手キャリアの施策タイミングに依存</p>
+  <p class="sub">稼げる月と稼げない月の差が激しい</p>
+</div>
+
+<div class="slide">
+  <h2>月換算すると…</h2>
+  <p>年間<span class="gold">160万円</span></p>
+  <p>月に換算すると</p>
+  <p>約<span class="red">13万円</span></p>
+  <p class="sub">「月収80万円」のインパクトとは裏腹に…</p>
+</div>
+
+<!-- ============================================ -->
+<!-- 第12章：MNPの「その先」（43:00〜46:00） -->
+<!-- ============================================ -->
+
+<div class="slide chapter-title">
+  <h1>第12章</h1>
+  <h2>MNPの<span class="green">「その先」</span></h2>
+  <p class="sub">43:00〜46:00</p>
+</div>
+
+<div class="slide">
+  <h2>2つの弱点を</h2>
+  <p><span class="green">完全に解消する方法</span>が</p>
+  <p>あるんです</p>
+  <p class="sub">しかも、あなたはすでに「材料」を持っている</p>
+</div>
+
+<div class="slide">
+  <h2>あなたが持つ<span class="highlight">「材料」</span></h2>
+  <p>MNPで手に入れた</p>
+  <p><span class="gold">「回線」</span> × <span class="gold">「端末」</span></p>
+  <p class="sub">これこそが最大の武器</p>
+</div>
+
+<div class="slide">
+  <h2><span class="gold">10回線</span>の可能性</h2>
+  <ul class="slide-list">
+    <li>電話番号認証サービスに<span class="gold">10個</span>のアカウント</li>
+    <li>抽選に<span class="gold">10倍</span>応募できる</li>
+    <li>紹介キャンペーンを<span class="gold">10倍</span>活用</li>
+  </ul>
+  <p class="sub">一般人の10倍の「武器」を持っている</p>
+</div>
+
+<div class="slide">
+  <h2>多くのMNPプレイヤーの現状</h2>
+  <p><span class="red">宝の山の上に座ったまま<br>小銭を拾っている</span></p>
+  <p class="sub">回線と端末を、ただ寝かせているだけ…</p>
+</div>
+
+<div class="slide">
+  <h2>エースさんの言葉</h2>
+  <p>「MNPの電話回線を持っているなら</p>
+  <p>維持費を<span class="green">実質ゼロ</span>にするだけでなく</p>
+  <p><span class="gold">火力をアップ</span>させることができる」</p>
+</div>
+
+<!-- ============================================ -->
+<!-- 第13章：3つの手法の全体像（46:00〜48:00） -->
+<!-- ============================================ -->
+
+<div class="slide chapter-title">
+  <h1>第13章</h1>
+  <h2>MNP × <span class="gold">3つの手法</span></h2>
+  <p class="sub">46:00〜48:00</p>
+</div>
+
+<div class="slide">
+  <h2><span class="gold">3つの手法</span></h2>
+  <div class="steps">
+    <div class="step">
+      <h3>手法 1</h3>
+      <p>楽天ポイントせどり</p>
+    </div>
+    <div class="step">
+      <h3>手法 2</h3>
+      <p>トレーディングカード転売</p>
+    </div>
+    <div class="step">
+      <h3>手法 3</h3>
+      <p>モバイルATM Lite</p>
+    </div>
+  </div>
+</div>
+
+<div class="slide">
+  <h2>MNP × 3つの手法</h2>
+  <p>大量の<span class="gold">回線</span>と<span class="gold">端末</span>を掛け合わせる</p>
+  <p>一般人には不可能な</p>
+  <p><span class="highlight">爆発的な火力</span></p>
+</div>
+
+<!-- ============================================ -->
+<!-- 第14章：楽天ポイントせどり（48:00〜52:00） -->
+<!-- ============================================ -->
+
+<div class="slide chapter-title">
+  <h1>第14章</h1>
+  <h2>手法 1<br><span class="gold">楽天ポイントせどり</span></h2>
+  <p class="sub">48:00〜52:00</p>
+</div>
+
+<div class="slide">
+  <h2>楽天ポイントせどりの流れ</h2>
+  <div class="steps">
+    <div class="step">
+      <h3>STEP 1</h3>
+      <p>お買い物マラソンでSPUを高める</p>
+    </div>
+    <div class="step">
+      <h3>STEP 2</h3>
+      <p>Appleギフトカードを購入</p>
+    </div>
+    <div class="step">
+      <h3>STEP 3</h3>
+      <p>Apple公式でiPhoneを購入</p>
+    </div>
+    <div class="step">
+      <h3>STEP 4</h3>
+      <p>買取屋で売却・現金化</p>
+    </div>
+  </div>
+</div>
+
+<div class="slide">
+  <h2>利益の仕組み</h2>
+  <p>iPhone売買で多少の損が出ても</p>
+  <p>大量に獲得した<span class="gold">楽天ポイント</span>分が</p>
+  <p><span class="highlight">まるまる利益</span>として残る</p>
+</div>
+
+<div class="slide">
+  <h2>なぜMNPが関係するのか？</h2>
+  <p><span class="highlight">アカウントの量産</span></p>
+  <p class="sub">MNP回線で複数の楽天アカウントを作成・運用</p>
+  <p>1アカウント月<span class="gold">3万円</span> × アカウント数<br>＝ 利益倍増</p>
+</div>
+
+<div class="slide">
+  <h2>デーさんの実績</h2>
+  <p>家族3人で実践</p>
+  <table class="slide-table">
+    <tr><th>年</th><th>利益</th></tr>
+    <tr><td>2023年</td><td><span class="gold">53万円</span></td></tr>
+    <tr><td>2024年</td><td><span class="gold">85万円</span></td></tr>
+  </table>
+  <p class="sub">一発屋ではなく、長く安定して稼げる堅実な手法</p>
+</div>
+
+<!-- ============================================ -->
+<!-- 第15章：トレーディングカード転売（52:00〜56:00） -->
+<!-- ============================================ -->
+
+<div class="slide chapter-title">
+  <h1>第15章</h1>
+  <h2>手法 2<br><span class="gold">トレーディングカード転売</span></h2>
+  <p class="sub">52:00〜56:00</p>
+</div>
+
+<div class="slide">
+  <h2>「MNPより簡単」</h2>
+  <p>当たったものを</p>
+  <p><span class="highlight">右から左に流すだけ</span></p>
+  <p class="sub">知識ゼロ・カードの強さを知らなくてもOK</p>
+</div>
+
+<div class="slide">
+  <h2>やることは<span class="gold">3ステップ</span></h2>
+  <div class="steps">
+    <div class="step">
+      <h3>STEP 1</h3>
+      <p>ポケモンセンターオンラインで抽選応募</p>
+    </div>
+    <div class="step">
+      <h3>STEP 2</h3>
+      <p>当選したら購入</p>
+    </div>
+    <div class="step">
+      <h3>STEP 3</h3>
+      <p>届いたら買取屋に送る</p>
+    </div>
+  </div>
+</div>
+
+<div class="slide">
+  <h2>通常の当選確率</h2>
+  <p>1アカウントで応募した場合</p>
+  <p>当選確率 約<span class="red">30%</span></p>
+  <p class="sub">なかなか当たらない…</p>
+</div>
+
+<div class="slide">
+  <h2>MNPプレイヤーの場合</h2>
+  <p><span class="gold">10回線</span>で応募</p>
+  <p>= 一般人の<span class="gold">10倍</span>の応募数</p>
+  <p class="sub">毎回<span class="gold">3〜4個</span>は当選する確率論</p>
+</div>
+
+<div class="slide">
+  <h2>利益計算</h2>
+  <table class="slide-table">
+    <tr><th>項目</th><th>金額</th></tr>
+    <tr><td>1個あたりの利益</td><td><span class="gold">5,000円</span></td></tr>
+    <tr><td>毎回の当選数</td><td><span class="gold">3〜4個</span></td></tr>
+    <tr><td>1回あたりの利益</td><td><span class="gold">15,000〜20,000円</span></td></tr>
+  </table>
+  <p class="sub">プレ値BOXなら<span class="gold">1撃で数万円超え</span>も</p>
+</div>
+
+<!-- ============================================ -->
+<!-- 第16章：モバイルATM Lite（56:00〜60:00） -->
+<!-- ============================================ -->
+
+<div class="slide chapter-title">
+  <h1>第16章</h1>
+  <h2>手法 3<br><span class="gold">モバイルATM Lite</span></h2>
+  <p class="sub">56:00〜60:00</p>
+</div>
+
+<div class="slide">
+  <h2>今、<span class="highlight">最もバブル</span></h2>
+  <p>3つの手法の中で</p>
+  <p><span class="gold">最大の爆発力</span>を持つ手法</p>
+  <p class="sub">紹介キャンペーンを活用</p>
+</div>
+
+<div class="slide">
+  <h2>端末同士で紹介を回す仕組み</h2>
+  <div class="steps">
+    <div class="step">
+      <h3>端末A</h3>
+      <p>紹介する</p>
+    </div>
+    <div class="step">
+      <h3>端末B</h3>
+      <p>紹介される</p>
+    </div>
+    <div class="step">
+      <h3>端末C</h3>
+      <p>さらに紹介…</p>
+    </div>
+  </div>
+  <p class="sub">友達がいなくても<span class="highlight">自己完結</span>が可能</p>
+</div>
+
+<div class="slide">
+  <h2><span class="gold">100端末</span>で<span class="gold">月100万円</span></h2>
+  <table class="slide-table">
+    <tr><th>端末数</th><th>月収</th></tr>
+    <tr><td>1端末</td><td><span class="gold">月1万円</span></td></tr>
+    <tr><td>20端末</td><td><span class="gold">月20万円</span></td></tr>
+    <tr><td>100端末</td><td><span class="gold">月100万円</span></td></tr>
+  </table>
+  <p class="sub">最高<span class="gold">月400万円</span>の実績も</p>
+</div>
+
+<div class="slide">
+  <h2>余った端末が<br><span class="gold">「自動販売機」</span>に変わる</h2>
+  <p>MNPで余っている端末が</p>
+  <p><span class="highlight">毎月お金を生む装置</span>になる</p>
+  <p class="sub">眠らせておくのはもったいない</p>
+</div>
+
+<div class="slide">
+  <h2>SIM通信 vs Wi-Fi</h2>
+  <table class="slide-table">
+    <tr><th>通信方法</th><th>結果</th></tr>
+    <tr><td>Wi-Fi（光回線）</td><td><span class="red">同一人物とみなされBANされやすい</span></td></tr>
+    <tr><td>SIM通信（モバイル回線）</td><td><span class="green">圧倒的に通りやすい</span></td></tr>
+  </table>
+  <p class="sub">大量のSIMを持つMNPプレイヤーだけの<span class="highlight">特権</span></p>
+</div>
+
+<!-- ============================================ -->
+<!-- 第17章：維持費実質0円の正体（60:00〜63:00） -->
+<!-- ============================================ -->
+
+<div class="slide chapter-title">
+  <h1>第17章</h1>
+  <h2>弱点が<span class="gold">武器</span>に変わる瞬間</h2>
+  <p class="sub">60:00〜63:00</p>
+</div>
+
+<div class="slide">
+  <h2>弱点1の解消</h2>
+  <h3>維持費が<span class="gold">「実質ゼロ」</span>になる</h3>
+  <ul class="slide-list">
+    <li>回線をMNPで転がすだけでなく</li>
+    <li>モバイルATM・トレカの認証に<span class="highlight">ワンタッチ</span>させるだけ</li>
+    <li><span class="gold">数万円〜数十万円</span>の利益がプラス</li>
+  </ul>
+  <p class="sub">本来「廃棄される運命」の期間に、回線が金を稼ぐ</p>
+</div>
+
+<div class="slide">
+  <h2>弱点2の解消</h2>
+  <h3>年2回どころか<span class="gold">「毎月」</span>稼げる</h3>
+  <p>維持費の請求書が届いても、同時に</p>
+  <p><span class="highlight">3つの収入源</span>から入金がある</p>
+  <p class="sub">「もっと回線を契約したい」という思考に変わる</p>
+</div>
+
+<div class="slide">
+  <h2>月間収益イメージ</h2>
+  <table class="slide-table">
+    <tr>
+      <th>収入源</th>
+      <th>月間収益</th>
+    </tr>
+    <tr>
+      <td>モバイルATM</td>
+      <td><span class="gold">20万円</span></td>
+    </tr>
+    <tr>
+      <td>楽天ポイント</td>
+      <td><span class="gold">7万円</span></td>
+    </tr>
+    <tr>
+      <td>トレカ売却益</td>
+      <td><span class="gold">3万円</span></td>
+    </tr>
+    <tr>
+      <td><strong>合計</strong></td>
+      <td><span class="gold"><strong>30万円/月</strong></span></td>
+    </tr>
+  </table>
+  <p class="sub">維持費なんて、一瞬でペイできる</p>
+</div>
+
+<div class="slide">
+  <h2>MNP × 3つの副業 = <span class="gold">ビジネス完成</span></h2>
+  <div class="steps">
+    <div class="step">
+      <h3>攻め</h3>
+      <p>MNP転売で<span class="highlight">一括収入</span></p>
+    </div>
+    <div class="step">
+      <h3>守り・増幅</h3>
+      <p>3つの副業で<span class="highlight">継続収入</span></p>
+    </div>
+  </div>
+  <p class="sub">この両方を手にした時、あなたのビジネスは完成する</p>
+</div>
+
+<!-- ============================================ -->
+<!-- 第18章：BAN対策とノウハウの壁（63:00〜66:00） -->
+<!-- ============================================ -->
+
+<div class="slide chapter-title">
+  <h1>第18章</h1>
+  <h2>なぜ自己流では<span class="red">ダメ</span>なのか</h2>
+  <p class="sub">63:00〜66:00</p>
+</div>
+
+<div class="slide">
+  <h2>自己流でやると</h2>
+  <h3><span class="red">99%</span>失敗する</h3>
+  <ul class="slide-list">
+    <li>「アカウントを作ったけどBANされた」</li>
+    <li>「抽選に応募してもなぜか当たらない」</li>
+    <li>「報酬が反映されない」</li>
+  </ul>
+  <p class="sub">ただ回線を持っているだけでは稼げない</p>
+</div>
+
+<div class="slide">
+  <h2><span class="red">シークレットBAN</span>の恐怖</h2>
+  <p>アカウントは<span class="highlight">生きている</span>のに</p>
+  <p>内部的に<span class="red">ブラックリスト入り</span></p>
+  <p><span class="red">永遠に当選しない状態</span>にされる</p>
+  <p class="sub">表面上は正常 → 気づかないまま収益ゼロ</p>
+</div>
+
+<div class="slide">
+  <h2>必要な<span class="highlight">微細コントロール</span></h2>
+  <ul class="slide-list">
+    <li>信頼性の高い<span class="highlight">メアド量産</span>方法</li>
+    <li><span class="highlight">住所の使い分け</span>（量産）ノウハウ</li>
+    <li><span class="highlight">クレカ管理</span>の戦略</li>
+    <li><span class="highlight">端末初期化</span>の正確な手順</li>
+  </ul>
+  <p class="sub">1つでもミスすれば、即BAN</p>
+</div>
+
+<div class="slide">
+  <h2>だからこそ</h2>
+  <h3><span class="green">プロのサポート</span>が必要</h3>
+  <p>BAN対策は<span class="highlight">「対策のイタチごっこ」</span></p>
+  <p>常に最新情報をキャッチアップし続ける必要がある</p>
+  <p class="sub">一人で戦うのは、あまりにも非効率</p>
+</div>
+
+<!-- ============================================ -->
+<!-- 第19章：完全コンサルティング企画（66:00〜70:00） -->
+<!-- ============================================ -->
+
+<div class="slide chapter-title">
+  <h1>第19章</h1>
+  <h2>MNP × 3つの副業<br><span class="gold">完全コンサルティング企画</span></h2>
+  <p class="sub">66:00〜70:00</p>
+</div>
+
+<div class="slide">
+  <h2>特典1</h2>
+  <h3>MNP転売<span class="gold">手取り足取りサポート</span></h3>
+  <p>MNP転売のやり方を<span class="highlight">ゼロから</span>徹底サポート</p>
+  <p>業者に頼らず、<span class="green">自分でMNPができる</span>ようになる</p>
+</div>
+
+<div class="slide">
+  <h2>特典2</h2>
+  <h3><span class="gold">池田モバイル</span>の利用権</h3>
+  <p>独自開発した「池田モバイル」を</p>
+  <p><span class="highlight">無制限</span>で利用可能</p>
+  <p class="sub">案件探しの手間がゼロに</p>
+</div>
+
+<div class="slide">
+  <h2>特典3：<span class="gold">3つの副業コース</span>（選択制）</h2>
+  <table class="slide-table">
+    <tr>
+      <th>コース</th>
+      <th>担当</th>
+      <th>収益目安</th>
+    </tr>
+    <tr>
+      <td>楽天コース</td>
+      <td>デーさん</td>
+      <td><span class="gold">月3万〜年100万円</span></td>
+    </tr>
+    <tr>
+      <td>トレカコース</td>
+      <td>アッシュさん</td>
+      <td><span class="gold">月数万〜数十万円</span></td>
+    </tr>
+    <tr>
+      <td>モバイルATMコース</td>
+      <td>エースさん</td>
+      <td><span class="gold">月20万〜400万円</span></td>
+    </tr>
+  </table>
+  <p class="sub">各分野のプロフェッショナルが直接サポート</p>
+</div>
+
+<div class="slide">
+  <h2>サポート体制</h2>
+  <div class="steps">
+    <div class="step">
+      <h3>特典4</h3>
+      <p><span class="gold">2ヶ月間</span>のチャットサポート</p>
+      <p class="sub">エース・アッシュ・デーが直接回答</p>
+    </div>
+    <div class="step">
+      <h3>特典5</h3>
+      <p><span class="gold">最新情報</span>の即時共有</p>
+      <p class="sub">対策変更時もすぐに最新の抜け道を共有</p>
+    </div>
+    <div class="step">
+      <h3>特典6</h3>
+      <p><span class="gold">BAN回避ノウハウ</span>完全伝授</p>
+      <p class="sub">住所・クレカ・端末の微細コントロール全て</p>
+    </div>
+  </div>
+</div>
+
+<div class="slide">
+  <h2>さらに</h2>
+  <div class="steps">
+    <div class="step">
+      <h3>特典7</h3>
+      <p>MNPから<span class="gold">継続収入</span>を作る方法</p>
+      <p class="sub">MNP転売の「その先」の収入源を構築</p>
+    </div>
+    <div class="step">
+      <h3>特典8</h3>
+      <p><span class="gold">AIアカデミー</span>への無料参加権</p>
+      <p class="sub">最新AI技術を活用した、さらなる収入源</p>
+    </div>
+  </div>
+</div>
+
+<div class="slide">
+  <h2><span class="gold">全8特典</span>まとめ</h2>
+  <ul class="slide-list">
+    <li>1. MNP転売コンサルサポート</li>
+    <li>2. 池田モバイル利用権</li>
+    <li>3. 3つの副業コース（選択制）</li>
+    <li>4. 2ヶ月間チャットサポート</li>
+    <li>5. 最新情報の即時共有</li>
+    <li>6. BAN回避ノウハウ完全伝授</li>
+    <li>7. 継続収入の作り方</li>
+    <li>8. AIアカデミー無料参加権</li>
+  </ul>
+  <p class="sub">あなたの成功に必要な全てが揃っている</p>
+</div>
+
+<!-- ============================================ -->
+<!-- 第20章：投資対効果（70:00〜73:00） -->
+<!-- ============================================ -->
+
+<div class="slide chapter-title">
+  <h1>第20章</h1>
+  <h2><span class="gold">投資対効果</span></h2>
+  <p class="sub">70:00〜73:00</p>
+</div>
+
+<div class="slide">
+  <h2><span class="gold">20回線</span>所有の場合</h2>
+  <table class="slide-table">
+    <tr>
+      <th>収入源</th>
+      <th>計算式</th>
+      <th>年間収益</th>
+    </tr>
+    <tr>
+      <td>モバイルATM</td>
+      <td>20端末 × 月1万円</td>
+      <td><span class="gold">年240万円</span></td>
+    </tr>
+    <tr>
+      <td>楽天ポイントせどり</td>
+      <td>iPhone転売</td>
+      <td><span class="gold">年85万円</span></td>
+    </tr>
+    <tr>
+      <td>トレカ</td>
+      <td>抽選・転売</td>
+      <td><span class="gold">月数万円</span></td>
+    </tr>
+  </table>
+</div>
+
+<div class="slide">
+  <h2>合計</h2>
+  <h3>年間<span class="gold">300万円以上</span>の上乗せ</h3>
+  <p>これは現実的な数字です</p>
+  <p class="sub">しかも、まだ話は終わっていません...</p>
+</div>
+
+<div class="slide">
+  <h2>MNPの利益とは<span class="gold">「別枠」</span></h2>
+  <p>MNPで稼ぎながら</p>
+  <p>同時に<span class="gold">3つの副収入</span>が入ってくる</p>
+  <p>これが<span class="highlight">「複合技」</span>の威力</p>
+</div>
+
+<div class="slide">
+  <h2>通常のコンサル相場</h2>
+  <h3><span class="gold">50万円〜100万円</span></h3>
+  <p>「<span class="gold">100万円</span>でも安すぎる」の声</p>
+  <p>しかし今回は</p>
+  <p><span class="green">特別価格</span>でご提供</p>
+  <p class="sub">詳細は無料相談でお伝えします</p>
+</div>
+
+<!-- ============================================ -->
+<!-- 第21章：理想の未来（73:00〜76:00） -->
+<!-- ============================================ -->
+
+<div class="slide chapter-title">
+  <h1>第21章</h1>
+  <h2>あなたの人生が<span class="green">変わる</span>瞬間</h2>
+  <p class="sub">73:00〜76:00</p>
+</div>
+
+<div class="slide">
+  <h2>想像してみてください</h2>
+  <h3>毎月<span class="gold">100万円以上</span>の収入</h3>
+  <p>MNP転売で<span class="gold">月収80万円</span></p>
+  <p>3つの副業で<span class="gold">月20〜30万円</span></p>
+  <p class="sub">合計で月100万円超の安定収入</p>
+</div>
+
+<div class="slide">
+  <h2><span class="green">自然に目覚め、ワクワクする毎日</span></h2>
+  <p>目覚まし時計ではなく、自然に目が覚める</p>
+  <p>「今日は<span class="highlight">何をしようかな</span>」</p>
+  <p>カレンダーを見ながらワクワクする朝</p>
+</div>
+
+<div class="slide">
+  <h2><span class="green">家族との時間、旅行の自由</span></h2>
+  <ul class="slide-list">
+    <li>平日の昼間に家族とカフェでランチ</li>
+    <li>週末は思い立ったらすぐ温泉旅行</li>
+    <li>年に数回の海外旅行 ── パリ、ハワイ、バリ島</li>
+  </ul>
+  <p class="sub">行きたい場所に、行きたい時に行ける自由</p>
+</div>
+
+<div class="slide">
+  <h2><span class="green">「お金の不安」からの完全解放</span></h2>
+  <p>何にも代えがたい<span class="highlight">安心感</span></p>
+  <p>将来の不安がゼロになる生活</p>
+  <p class="sub">これが、MNP × 3つの副業を手にしたあなたの未来</p>
+</div>
+
+<div class="slide">
+  <h2>維持費の請求書が届いても</h2>
+  <h3>もう<span class="red">怖くない</span></h3>
+  <p>それどころか</p>
+  <p>「維持費以上の<span class="gold">入金通知</span>」を見て</p>
+  <p><span class="green">ニヤリ</span>とする</p>
+</div>
+
+<!-- ============================================ -->
+<!-- 第22章：限定特典（76:00〜78:00） -->
+<!-- ============================================ -->
+
+<div class="slide chapter-title">
+  <h1>第22章</h1>
+  <h2><span class="gold">限定特典</span></h2>
+  <p class="sub">76:00〜78:00</p>
+</div>
+
+<div class="slide">
+  <h2>今すぐ申し込んだあなただけに</h2>
+  <table class="slide-table">
+    <tr>
+      <th>特典</th>
+      <th>内容</th>
+    </tr>
+    <tr>
+      <td><span class="gold">A</span></td>
+      <td>MNP転売<span class="highlight">完全マニュアル</span>（PDF版）</td>
+    </tr>
+    <tr>
+      <td><span class="gold">B</span></td>
+      <td><span class="highlight">優良案件リスト</span>（高額CB案件）</td>
+    </tr>
+    <tr>
+      <td><span class="gold">C</span></td>
+      <td>個別LINE相談（<span class="gold">30日間</span>無料）</td>
+    </tr>
+    <tr>
+      <td><span class="gold">D</span></td>
+      <td>リアルな<span class="highlight">成功事例集</span></td>
+    </tr>
+  </table>
+</div>
+
+<div class="slide">
+  <h2>これらの特典だけでも</h2>
+  <h3><span class="gold">10万円以上</span>の価値</h3>
+  <p>しかし、今すぐ決断したあなたには</p>
+  <p><span class="green">完全無料</span>でプレゼント</p>
+</div>
+
+<!-- ============================================ -->
+<!-- 第23章：なぜここまでするのか（78:00〜80:00） -->
+<!-- ============================================ -->
+
+<div class="slide chapter-title">
+  <h1>第23章</h1>
+  <h2><span class="highlight">池田の想い</span></h2>
+  <p class="sub">78:00〜80:00</p>
+</div>
+
+<div class="slide">
+  <h2><span class="gold">11年前</span>の自分を救いたい</h2>
+  <p>借金<span class="red">250万円</span>を抱え、絶望していた</p>
+  <p>あの頃の自分と同じ苦しみを抱える人を</p>
+  <p><span class="green">一人でも多く救いたい</span></p>
+</div>
+
+<div class="slide">
+  <h2>MNP<span class="red">「だけ」</span>の時代は終わる</h2>
+  <ul class="slide-list">
+    <li>キャリアの<span class="red">規制強化</span></li>
+    <li>案件の<span class="red">減少</span></li>
+    <li><span class="red">ブラックリスト</span>入りのリスク</li>
+  </ul>
+  <p class="sub">賢いプレイヤーは「複合技」にシフトしている</p>
+</div>
+
+<div class="slide">
+  <h2>あなたはすでに<span class="gold">「材料」</span>を持っている</h2>
+  <p>回線も、端末も、ポイントも</p>
+  <p>全ての<span class="highlight">材料</span>は揃っている</p>
+  <p>あとは<span class="gold">「レシピ（ノウハウ）」</span>を知るだけ</p>
+</div>
+
+<!-- ============================================ -->
+<!-- 第24章：クロージング（80:00〜85:00） -->
+<!-- ============================================ -->
+
+<div class="slide chapter-title">
+  <h1>第24章</h1>
+  <h2><span class="red">最後の決断</span></h2>
+  <p class="sub">80:00〜85:00</p>
+</div>
+
+<div class="slide">
+  <h2>このチャンスは</h2>
+  <h3><span class="red">いつまでも続かない</span></h3>
+  <p>大手キャリアが高額インセンティブを出している<span class="highlight">今</span>だからこそ</p>
+  <p>これだけ稼げる</p>
+</div>
+
+<div class="slide">
+  <h2><span class="red">総務省の規制リスク</span></h2>
+  <p>インセンティブが<span class="red">減額</span>される可能性</p>
+  <p>過去にも規制が入り、稼げなくなった手法が<span class="red">いくつも</span>ある</p>
+  <p class="sub">この状況がいつまで続くかは、誰にも分からない</p>
+</div>
+
+<div class="slide">
+  <h2>明日のあなたは、どちら？</h2>
+  <div class="steps">
+    <div class="step">
+      <h3><span class="red">A</span></h3>
+      <p>維持費の請求書を見て<span class="red">ため息</span>をつく</p>
+    </div>
+    <div class="step">
+      <h3><span class="green">B</span></h3>
+      <p>入金通知を見て<span class="green">ニヤリ</span>とする</p>
+    </div>
+  </div>
+</div>
+
+<div class="slide">
+  <h2><span class="gold">今が最大のチャンス</span></h2>
+  <p>1年後、2年後に</p>
+  <p>「<span class="red">あの時やっておけば良かった...</span>」</p>
+  <p>と後悔しても、もう遅い</p>
+</div>
+
+<div class="slide">
+  <h2>あなたがやることは<span class="gold">たった1つ</span></h2>
+  <h3>今すぐ<span class="green">無料相談</span>に申し込むだけ</h3>
+  <ul class="slide-list">
+    <li>あなたの状況をヒアリング</li>
+    <li>最適なプランをご提案</li>
+    <li>無理な勧誘は<span class="highlight">一切なし</span></li>
+  </ul>
+  <p class="sub">リスクはゼロです</p>
+</div>
+
+<div class="slide">
+  <h2>追伸</h2>
+  <h3>「<span class="highlight">行動しなければ、何も変わらない</span>」</h3>
+  <p><span class="gold">11年前</span>、借金<span class="red">250万円</span>を抱えていた池田は</p>
+  <p>MNP転売に出会い、行動を起こしたことで</p>
+  <p>人生が<span class="green">180度</span>変わった</p>
+</div>
+
+<div class="slide">
+  <h2>1年後、あなたはこう言っているはずです</h2>
+  <h3>「<span class="green">あの時、行動して本当に良かった</span>」</h3>
+  <p>必要なのは</p>
+  <p><span class="highlight">最初の一歩を踏み出す勇気</span>だけ</p>
+</div>
+
+<div class="slide">
+  <h2><span class="gold">無料相談お申し込み</span></h2>
+  <p>下のボタンをクリックして</p>
+  <p><span class="green">人生を変える第一歩</span>を踏み出してください</p>
+  <p class="sub">※無料相談の募集は予告なく終了する場合があります</p>
+  <p class="sub">※今すぐお申し込みいただくことを強くお勧めします</p>
+</div>
+
+<!-- Navigation Bar -->
+<div class="nav-bar">
+  <div class="nav-buttons">
+    <button onclick="prevSlide()">&#9664; 前へ</button>
+    <button onclick="nextSlide()">次へ &#9654;</button>
+  </div>
+  <div class="chapter-info" id="chapterInfo"></div>
+  <div class="slide-counter" id="slideCounter"></div>
+</div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  let current = 0;
+
+  // Chapter mapping
+  const chapters = [
+    { start: 0, end: 5, name: '第1章：オープニング' },
+    { start: 6, end: 13, name: '第2章：自己紹介と実績' },
+    { start: 14, end: 21, name: '第3章：共感パート' },
+    { start: 22, end: 26, name: '第4章：なぜ稼げないのか' },
+    { start: 27, end: 32, name: '第5章：MNP転売とは何か' },
+    { start: 33, end: 37, name: '第6章：合法性の説明' },
+    { start: 38, end: 41, name: '第7章：具体的な数字' },
+    { start: 42, end: 46, name: '第8章：成功事例' },
+    { start: 47, end: 59, name: '第9章：7つのメリット' },
+    { start: 60, end: 62, name: '第10章：池田モバイル' },
+    { start: 63, end: 67, name: '第11章：2つの弱点' },
+    { start: 68, end: 73, name: '第12章：MNPの「その先」' },
+    { start: 74, end: 76, name: '第13章：3つの手法' },
+    { start: 77, end: 81, name: '第14章：楽天ポイントせどり' },
+    { start: 82, end: 87, name: '第15章：トレーディングカード転売' },
+    { start: 88, end: 93, name: '第16章：モバイルATM Lite' },
+    { start: 94, end: 98, name: '第17章：維持費実質0円の正体' },
+    { start: 99, end: 103, name: '第18章：BAN対策' },
+    { start: 104, end: 110, name: '第19章：コンサルティング企画' },
+    { start: 111, end: 115, name: '第20章：投資対効果' },
+    { start: 116, end: 121, name: '第21章：理想の未来' },
+    { start: 122, end: 124, name: '第22章：限定特典' },
+    { start: 125, end: 128, name: '第23章：池田の想い' },
+    { start: 129, end: 137, name: '第24章：クロージング' }
+  ];
+
+  function getCurrentChapter() {
+    for (const ch of chapters) {
+      if (current >= ch.start && current <= ch.end) return ch.name;
+    }
+    return '';
+  }
+
+  function showSlide(n) {
+    slides[current].classList.remove('active');
+    current = Math.max(0, Math.min(n, slides.length - 1));
+    slides[current].classList.add('active');
+    updateUI();
+  }
+
+  function nextSlide() { showSlide(current + 1); }
+  function prevSlide() { showSlide(current - 1); }
+
+  function updateUI() {
+    document.getElementById('slideCounter').textContent =
+      (current + 1) + ' / ' + slides.length;
+    document.getElementById('chapterInfo').textContent = getCurrentChapter();
+    document.getElementById('progressBar').style.width =
+      ((current + 1) / slides.length * 100) + '%';
+  }
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'Enter') {
+      e.preventDefault(); nextSlide();
+    } else if (e.key === 'ArrowLeft' || e.key === 'Backspace') {
+      e.preventDefault(); prevSlide();
+    } else if (e.key === 'Home') {
+      e.preventDefault(); showSlide(0);
+    } else if (e.key === 'End') {
+      e.preventDefault(); showSlide(slides.length - 1);
+    }
+  });
+
+  // Touch navigation
+  let touchStartX = 0;
+  document.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; });
+  document.addEventListener('touchend', (e) => {
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) { diff > 0 ? nextSlide() : prevSlide(); }
+  });
+
+  // Click navigation (left/right halves)
+  document.addEventListener('click', (e) => {
+    if (e.target.closest('.nav-bar')) return;
+    if (e.clientX > window.innerWidth / 2) nextSlide();
+    else prevSlide();
+  });
+
+  // Initialize
+  slides[0].classList.add('active');
+  updateUI();
+</script>
+
+</body>
+</html>
