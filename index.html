@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1日で25万稼いだ MNP転売</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/black.min.css">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap');
+
+  :root {
+    --navy: #2c2c54;
+    --gold: #c5a55a;
+    --dark-bg: #1a1a2e;
+    --light-bg: #f0f0f0;
+    --red: #e74c3c;
+    --green: #27ae60;
+    --white: #ffffff;
+  }
+
+  .reveal {
+    font-family: 'Noto Sans JP', sans-serif;
+  }
+
+  .reveal .slides section {
+    text-align: left;
+    padding: 40px;
+  }
+
+  /* Title header bar */
+  .slide-header {
+    background: var(--navy);
+    color: var(--gold);
+    padding: 15px 30px;
+    margin: -40px -40px 30px -40px;
+    font-size: 1.3em;
+    font-weight: 900;
+    text-align: center;
+  }
+
+  /* Title slide */
+  .title-slide {
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--light-bg) !important;
+    border: 8px solid var(--navy);
+  }
+  .title-slide h1 {
+    color: #1a1a1a !important;
+    font-size: 2.5em !important;
+    font-weight: 900 !important;
+    line-height: 1.3;
+  }
+
+  /* Default section styling */
+  .reveal .slides section {
+    background: var(--light-bg);
+    color: #1a1a1a;
+    border-radius: 0;
+  }
+
+  .reveal h2 {
+    color: #1a1a1a;
+    font-weight: 900;
+    font-size: 1.4em;
+    margin-bottom: 20px;
+  }
+
+  .reveal h3 {
+    color: var(--navy);
+    font-weight: 700;
+    font-size: 1.1em;
+  }
+
+  /* Emphasis text */
+  .highlight-red {
+    color: var(--red);
+    font-weight: 900;
+    font-size: 1.2em;
+  }
+
+  .highlight-gold {
+    color: var(--gold);
+    font-weight: 900;
+  }
+
+  .highlight-navy {
+    color: var(--navy);
+    font-weight: 900;
+  }
+
+  .highlight-green {
+    color: var(--green);
+    font-weight: 700;
+  }
+
+  /* Big center text */
+  .big-center {
+    text-align: center !important;
+    font-size: 1.8em !important;
+    font-weight: 900 !important;
+    line-height: 1.5 !important;
+    margin-top: 60px !important;
+  }
+
+  .big-center-red {
+    text-align: center !important;
+    font-size: 2em !important;
+    font-weight: 900 !important;
+    color: var(--red) !important;
+    margin-top: 30px !important;
+  }
+
+  /* Tables */
+  .reveal table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 0.75em;
+  }
+
+  .reveal table th {
+    background: var(--navy);
+    color: var(--white);
+    padding: 12px 15px;
+    text-align: left;
+    font-weight: 700;
+  }
+
+  .reveal table td {
+    padding: 10px 15px;
+    border-bottom: 1px solid #ddd;
+    background: var(--white);
+  }
+
+  .reveal table tr:nth-child(even) td {
+    background: #f8f8f8;
+  }
+
+  /* Comparison boxes */
+  .compare-box {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+  }
+
+  .compare-item {
+    flex: 1;
+    padding: 20px;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+
+  .compare-item.user-box {
+    border: 3px solid #999;
+  }
+
+  .compare-item.agent-box {
+    border: 3px solid var(--gold);
+    background: #fffef5;
+  }
+
+  .compare-item h3 {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 1em;
+  }
+
+  /* Check list */
+  .check-list {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+  }
+
+  .check-list li {
+    padding: 8px 0;
+    font-size: 0.85em;
+    font-weight: 700;
+  }
+
+  .check-list li::before {
+    content: "\2705 ";
+    margin-right: 5px;
+  }
+
+  /* Warning list */
+  .warn-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .warn-list li {
+    padding: 8px 0;
+    font-size: 0.8em;
+  }
+
+  .warn-list li::before {
+    content: "\26a0\fe0f ";
+    margin-right: 5px;
+  }
+
+  /* Number steps */
+  .step-num {
+    display: inline-block;
+    background: var(--navy);
+    color: var(--white);
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 50%;
+    font-weight: 700;
+    margin-right: 10px;
+  }
+
+  /* QA section */
+  .qa-item {
+    background: white;
+    padding: 15px 20px;
+    margin: 10px 0;
+    border-radius: 8px;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.08);
+    font-size: 0.7em;
+  }
+
+  .qa-item .q {
+    font-weight: 900;
+    color: var(--navy);
+    margin-bottom: 5px;
+  }
+
+  .qa-item .a {
+    color: var(--green);
+    font-weight: 700;
+  }
+
+  /* Revenue box */
+  .revenue-box {
+    background: white;
+    border: 2px solid var(--gold);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    margin: 20px 0;
+    font-size: 0.85em;
+  }
+
+  .revenue-box .label {
+    color: #666;
+    font-size: 0.85em;
+  }
+
+  .revenue-box .amount {
+    font-size: 1.6em;
+    font-weight: 900;
+    color: var(--red);
+  }
+
+  /* Funnel */
+  .funnel-step {
+    background: white;
+    padding: 10px 20px;
+    margin: 5px 0;
+    border-left: 4px solid var(--navy);
+    font-size: 0.8em;
+    font-weight: 700;
+  }
+
+  .funnel-step span {
+    color: var(--navy);
+    margin-right: 10px;
+  }
+
+  /* Closing slide */
+  .closing-options {
+    display: flex;
+    gap: 20px;
+    margin-top: 15px;
+  }
+
+  .option-a {
+    flex: 1;
+    background: #f5f5f5;
+    border: 2px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 0.65em;
+  }
+
+  .option-b {
+    flex: 1;
+    background: linear-gradient(135deg, #fffef0, #fff8dc);
+    border: 3px solid var(--gold);
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 0.65em;
+    box-shadow: 0 4px 15px rgba(197, 165, 90, 0.3);
+  }
+
+  .option-b h3 {
+    color: var(--gold) !important;
+  }
+
+  /* Bar chart simulation */
+  .bar-chart {
+    display: flex;
+    align-items: flex-end;
+    gap: 15px;
+    height: 200px;
+    margin: 20px 0;
+    padding: 0 20px;
+  }
+
+  .bar-item {
+    flex: 1;
+    text-align: center;
+  }
+
+  .bar {
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+    transition: height 0.5s;
+  }
+
+  .bar-label {
+    font-size: 0.6em;
+    margin-top: 8px;
+    font-weight: 700;
+  }
+
+  /* Phase box */
+  .phase-box {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    margin: 15px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    text-align: center;
+  }
+
+  .phase-num {
+    font-size: 0.8em;
+    color: var(--gold);
+    font-weight: 900;
+  }
+
+  .phase-title {
+    font-size: 1.3em;
+    font-weight: 900;
+    margin: 10px 0;
+  }
+
+  /* Org chart */
+  .org-chart {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 0.85em;
+  }
+
+  .org-you {
+    display: inline-block;
+    background: var(--gold);
+    color: white;
+    padding: 10px 30px;
+    border-radius: 8px;
+    font-weight: 900;
+    font-size: 1.1em;
+  }
+
+  .org-line {
+    text-align: center;
+    font-size: 1.2em;
+    margin: 5px 0;
+    color: var(--navy);
+  }
+
+  .org-members {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 5px;
+  }
+
+  .org-member {
+    background: var(--navy);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 0.85em;
+  }
+
+  /* Result card */
+  .result-card {
+    background: white;
+    border: 3px solid var(--navy);
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+    margin: 15px 0;
+  }
+
+  .result-card .name {
+    font-size: 0.9em;
+    color: #666;
+  }
+
+  .result-card .result-amount {
+    font-size: 2em;
+    font-weight: 900;
+    color: var(--red);
+    margin: 10px 0;
+  }
+
+  .result-card .detail {
+    font-size: 0.75em;
+    color: #555;
+    line-height: 1.6;
+  }
+
+  /* Small text */
+  .small-note {
+    font-size: 0.65em;
+    color: #888;
+    margin-top: 15px;
+  }
+
+  /* Simulation table */
+  .sim-table {
+    font-size: 0.7em;
+  }
+
+  /* Profit calc */
+  .profit-calc {
+    background: white;
+    border: 3px solid var(--green);
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+    margin: 15px 0;
+  }
+
+  .profit-calc .formula {
+    font-size: 0.8em;
+    margin: 8px 0;
+  }
+
+  .profit-calc .result {
+    font-size: 1.3em;
+    font-weight: 900;
+    color: var(--green);
+    margin-top: 10px;
+  }
+
+  /* Closing message */
+  .closing-msg {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.1em;
+    font-weight: 900;
+    color: var(--navy);
+    line-height: 1.8;
+  }
+
+  /* Products */
+  .product-list {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+  }
+
+  .product-item {
+    background: white;
+    padding: 25px 35px;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: 900;
+    font-size: 1em;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border: 2px solid var(--green);
+  }
+
+  /* Rule items */
+  .rule-item {
+    background: white;
+    padding: 15px 20px;
+    margin: 10px 0;
+    border-left: 5px solid var(--navy);
+    font-size: 0.8em;
+    font-weight: 700;
+  }
+
+  /* Benefits grid */
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 15px;
+  }
+
+  .benefit-item {
+    background: white;
+    padding: 12px 15px;
+    border-radius: 8px;
+    font-size: 0.7em;
+    font-weight: 700;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.08);
+  }
+
+  .benefit-item::before {
+    content: "\2705 ";
+  }
+
+  /* Diff highlight */
+  .diff-highlight {
+    background: #fff3cd;
+    border: 2px solid var(--gold);
+    padding: 15px 20px;
+    border-radius: 8px;
+    text-align: center;
+    margin: 15px 0;
+    font-weight: 900;
+  }
+
+  /* Fraud warning */
+  .fraud-box {
+    background: #fff5f5;
+    border: 2px solid var(--red);
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin: 10px 0;
+  }
+
+  .fraud-box p {
+    font-size: 0.8em;
+    margin: 8px 0;
+  }
+
+  /* Safe method box */
+  .safe-box {
+    background: #f0fff0;
+    border: 2px solid var(--green);
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin: 10px 0;
+  }
+
+  .safe-box p {
+    font-size: 0.8em;
+    margin: 8px 0;
+    font-weight: 700;
+  }
+
+  /* Incentive bar chart */
+  .incentive-bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 20px;
+    height: 180px;
+    margin: 20px auto;
+    max-width: 600px;
+  }
+
+  .inc-bar-item {
+    flex: 1;
+    text-align: center;
+  }
+
+  .inc-bar {
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    color: white;
+    font-weight: 900;
+    font-size: 0.8em;
+    padding-bottom: 5px;
+  }
+
+  .inc-bar-label {
+    font-size: 0.6em;
+    margin-top: 8px;
+    font-weight: 700;
+    color: #333;
+  }
+
+  .inc-bar-sub {
+    font-size: 0.5em;
+    color: #666;
+  }
+</style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+<!-- Slide 1: Title -->
+<section class="title-slide">
+  <h1>1日で25万稼いだ<br>MNP転売</h1>
+</section>
+
+<!-- Slide 2: Self-intro -->
+<section>
+  <div class="slide-header">自己紹介</div>
+  <h2>いけだよしふみ</h2>
+  <p style="font-size:0.85em; color:#555;">合同会社アドマーケティング代表</p>
+  <p style="font-size:0.95em; margin:15px 0;"><span class="highlight-navy" style="background:#f0e6c0; padding:3px 10px; border-radius:4px;">広告業</span> のかたわら <span class="highlight-navy" style="background:#f0e6c0; padding:3px 10px; border-radius:4px;">0→1向けのコンサル</span> も運営</p>
+  <ul class="check-list" style="font-size:0.8em;">
+    <li>ネットビジネス歴約12年</li>
+    <li>最高月商2000万。毎月150万〜300万円前後の利益</li>
+    <li>指導してきた生徒数：<strong>500人以上</strong></li>
+    <li>生徒への指導実績：<strong>月間利益30万円〜200万円</strong>（初心者8割）</li>
+  </ul>
+</section>
+
+<!-- Slide 3: Current lifestyle -->
+<section>
+  <div class="slide-header">現在は...</div>
+  <p class="big-center" style="font-size:1.2em !important; margin-top:30px !important;">
+    時間とお金に余裕ができ、大好きな旅行を<br>
+    好きな時に好きなだけ楽しめるようになりました
+  </p>
+</section>
+
+<!-- Slide 4: Was I always successful? -->
+<section>
+  <div style="background:white; border-radius:12px; padding:25px; margin-top:20px; text-align:center;">
+    <p style="font-size:1.2em; font-weight:900;">最初から凄かったんじゃないの？</p>
+  </div>
+  <div style="background:white; border-radius:12px; padding:25px; margin-top:20px; text-align:center;">
+    <p style="font-size:1.1em;">いえ、<span class="highlight-navy">普通の家庭</span>で生まれて、<br>
+    <span class="highlight-red" style="font-size:1em;">家族に経営者もいなく</span>、元々は埼玉生まれの<br>
+    <span class="highlight-navy">ごく普通の一般人</span>でした...</p>
+  </div>
+</section>
+
+<!-- Slide 5: 11 years ago -->
+<section>
+  <div class="slide-header">11年前までは・・・</div>
+  <div class="compare-box">
+    <div class="compare-item" style="text-align:center;">
+      <h3 style="font-size:1.2em;">手取り18万円程度</h3>
+      <p class="highlight-red" style="font-size:1.2em;">借金250万</p>
+      <p style="font-size:0.75em; color:#666; margin-top:15px;">お金がなさすぎて<br>月1万のシェアハウスを転々としてた</p>
+    </div>
+    <div class="compare-item" style="text-align:center;">
+      <h3 style="font-size:1.2em;">ノウハウコレクター</h3>
+      <p style="font-size:0.75em; color:#666; margin-top:15px;">・いろんな塾に入って結果が出ない日々<br><br>・会社と副業でプライベートの時間なし</p>
+    </div>
+  </div>
+</section>
+
+<!-- Slide 6: Why I could earn for 12 years -->
+<section>
+  <div class="slide-header">そんなポンコツの私がなぜ 12年も稼げてるのか？</div>
+  <p class="big-center" style="margin-top:40px !important;">その理由は</p>
+  <p class="big-center-red">MNP転売</p>
+</section>
+
+<!-- Slide 7: What is MNP -->
+<section>
+  <div class="slide-header">MNP転売とは</div>
+  <div class="funnel-step"><span>1</span> 今使ってる携帯は変えない</div>
+  <div class="funnel-step" style="margin-left:20px;"><span>2</span> 格安SIMを新規で契約</div>
+  <div class="funnel-step" style="margin-left:40px;"><span>3</span> 大手キャリアに乗換え（MNP）</div>
+  <div class="funnel-step" style="margin-left:60px;"><span>4</span> 商品券またはスマホを格安で取得する</div>
+  <div class="funnel-step" style="margin-left:80px;"><span>5</span> 端末または商品券を売却する</div>
+  <div class="funnel-step" style="margin-left:100px; border-left-color:var(--gold);"><span>6</span> <span class="highlight-red">利益</span></div>
+</section>
+
+<!-- Slide 8: Why phones get discounted -->
+<section>
+  <div class="slide-header">回線契約をするとスマホが割引になる理由</div>
+  <h2 style="color:var(--red);">結論：キャリアからのインセンティブが一番大きいのがMNPだから</h2>
+  <div style="font-size:0.75em; margin:15px 0;">
+    <p>&#9632; 3大キャリア（docomo、au、ソフトバンク）は、<span class="highlight-red" style="font-size:1em;">MNP（他社からの乗り換え）</span>で多額のリベート（報酬）を代理店に支払います</p>
+    <p style="margin-top:10px;">&#9632; このため、代理店や量販店は他社からの乗り換えを積極的に促進し、端末を大幅に値引きする仕組みとなっています</p>
+  </div>
+  <div style="display:flex; align-items:center; justify-content:center; gap:15px; margin-top:20px; font-size:0.8em; font-weight:700;">
+    <span>キャリア</span>
+    <span style="color:var(--red);">→ リベート →</span>
+    <span>代理店・量販店</span>
+    <span style="color:var(--red);">→ 大幅値引き →</span>
+    <span>消費者（あなた）</span>
+  </div>
+</section>
+
+<!-- Slide 9: Incentive ranking -->
+<section>
+  <div class="slide-header">インセンティブ順位とイメージ図</div>
+  <div class="incentive-bars">
+    <div class="inc-bar-item">
+      <div class="inc-bar" style="height:180px; background:var(--red);">100</div>
+      <div class="inc-bar-label">MNP<br><span class="inc-bar-sub">他社からの乗り換え</span></div>
+    </div>
+    <div class="inc-bar-item">
+      <div class="inc-bar" style="height:126px; background:#3498db;">70</div>
+      <div class="inc-bar-label">新規契約<br><span class="inc-bar-sub">新たに契約する</span></div>
+    </div>
+    <div class="inc-bar-item">
+      <div class="inc-bar" style="height:72px; background:var(--green);">40</div>
+      <div class="inc-bar-label">機種変更<br><span class="inc-bar-sub">同じキャリアで変更</span></div>
+    </div>
+    <div class="inc-bar-item">
+      <div class="inc-bar" style="height:27px; background:#999;">15</div>
+      <div class="inc-bar-label">移動機<br><span class="inc-bar-sub">端末のみ</span></div>
+    </div>
+  </div>
+  <div class="diff-highlight" style="font-size:0.85em;">だから"乗り換え"が特に安くなる！</div>
+</section>
+
+<!-- Slide 10: Legal -->
+<section>
+  <div class="slide-header">法的に問題ないのか？</div>
+  <p class="big-center">まったく問題ない。<br>間違った手法がまかり通ってるだけ</p>
+</section>
+
+<!-- Slide 11: 2-yen trap -->
+<section>
+  <div class="slide-header">量販店のPOPに騙されるな</div>
+  <div class="compare-box">
+    <div class="compare-item" style="text-align:center; border-color:var(--red);">
+      <p style="font-size:1.5em; font-weight:900;">iPhone14 128GB</p>
+      <p style="font-size:2em; font-weight:900; color:var(--red);">月額2円!?</p>
+      <p style="font-size:0.75em; color:#666;">（スマトクプログラム適用・22ヶ月）</p>
+    </div>
+    <div class="compare-item" style="text-align:center;">
+      <p style="font-size:1.2em; font-weight:900; margin-bottom:15px;">実態</p>
+      <p style="font-size:0.9em; font-weight:700;">2円では買えない</p>
+      <p style="font-size:1.8em; font-weight:900; color:var(--red);">実際は72,753円</p>
+      <p style="font-size:0.7em; color:#666; margin-top:10px;">※スマホを返却しない場合の残価</p>
+    </div>
+  </div>
+</section>
+
+<!-- Slide 12: Fraud scheme -->
+<section>
+  <div class="slide-header">詐欺行為の仕組み</div>
+  <div class="fraud-box">
+    <p><span class="step-num">1</span> SNSでスマホを購入するだけで数万円から数十万の報酬がもらえると<strong>協力者をつのる</strong></p>
+    <p><span class="step-num">2</span> 報酬の見返りとして<strong style="color:var(--red);">協力者名義</strong>で回線の契約をしてもらい、端末は全て指示役に渡す</p>
+    <p><span class="step-num">3</span> 端末を受け取ったら指示役とは<strong style="color:var(--red);">連絡がとれなくなり</strong>端末の残債は協力者が負担する。</p>
+  </div>
+</section>
+
+<!-- Slide 13: Fraud damage -->
+<section>
+  <div class="slide-header">詐欺に巻き込まれるとどのくらい損するのか？</div>
+  <div style="display:flex; gap:20px; margin-top:20px;">
+    <div class="revenue-box" style="flex:1;">
+      <div class="label">収入（1回線）</div>
+      <div class="amount" style="color:var(--green);">15,000円</div>
+    </div>
+    <div class="revenue-box" style="flex:1;">
+      <div class="label">支出（1回線）</div>
+      <div class="amount">72,753円</div>
+    </div>
+    <div class="revenue-box" style="flex:1;">
+      <div class="label">差額</div>
+      <div class="amount">-57,753円</div>
+    </div>
+  </div>
+  <p class="big-center" style="font-size:1.1em !important; margin-top:20px !important;">
+    15,000円をもらって<br><span class="highlight-red">72,000円の債務を背負わされる。</span>
+  </p>
+</section>
+
+<!-- Slide 14: Illegal MNP examples -->
+<section>
+  <div class="slide-header">不正なMNP転売の例</div>
+  <h3 style="color:var(--red); font-size:1em;">不正なMNP転売は詐欺の温床</h3>
+  <div class="fraud-box">
+    <p>&#9888;&#65039; 1円と偽り<strong style="color:var(--red);">高額債務</strong>を負わせるなどの事例</p>
+    <p>&#9888;&#65039; SNSで高額報酬を謳い、<strong style="color:var(--red);">名義協力者に端末代の残債</strong>を負わせる</p>
+    <p>&#9888;&#65039; 債務はCIC（信用情報機関）に記録され、<strong style="color:var(--red);">信用に傷</strong>がつく</p>
+  </div>
+  <p style="text-align:center; margin-top:20px; font-weight:900; color:var(--red); font-size:0.9em;">高額債務・信用失墜リスク</p>
+</section>
+
+<!-- Slide 15: Correct MNP -->
+<section>
+  <div class="slide-header" style="background:var(--green); color:white;">私が提唱している正しいMNP転売</div>
+  <h3 style="color:var(--green); font-size:1em;">顧客にリスクを負わせない透明な方法</h3>
+  <div class="safe-box">
+    <p>&#9989; <strong>SIMのみ契約:</strong> 端末債務なしでキャッシュバック獲得</p>
+    <p>&#9989; <strong>商品転売:</strong> キャッシュバックでゲーム機等を購入し転売</p>
+    <p>&#9989; <strong>リスク最小化:</strong> 顧客は分割債務を負わない</p>
+    <p>&#9989; <strong>透明性:</strong> 総額・利益を明示</p>
+  </div>
+  <p style="text-align:center; margin-top:20px; font-weight:900; color:var(--green);">安心・安全・透明なMNP活用法</p>
+</section>
+
+<!-- Slide 16: How much can you earn -->
+<section>
+  <div class="slide-header">どれくらい稼げるの？（個人）</div>
+  <ul class="check-list" style="font-size:1.3em; margin-top:30px;">
+    <li>1日で15万〜25万</li>
+    <li>最短1日で現金化</li>
+    <li>家族名義活用で利益倍増</li>
+  </ul>
+  <p class="small-note" style="margin-top:30px; font-size:0.75em; background:#fff3cd; padding:10px 15px; border-radius:8px;">
+    ※この金額を実現する「池田式MNP手法」は<br>
+    <strong>代理店参加者にのみフル公開</strong>しています
+  </p>
+</section>
+
+<!-- Slide 17: MNP merits -->
+<section>
+  <div class="slide-header">MNPのメリット</div>
+  <div style="display:flex; gap:30px;">
+    <div style="flex:1;">
+      <ul class="check-list" style="font-size:0.85em;">
+        <li>再現性が高い</li>
+        <li>即金性が高く金額もおおきい</li>
+        <li>損失リスクが極めて低い</li>
+        <li>時間拘束が少ない</li>
+        <li>収益の見通しが立てやすい</li>
+        <li>スケール化がしやすい</li>
+        <li>市場が構造的になくならない</li>
+      </ul>
+    </div>
+    <div style="flex:1; display:flex; align-items:center;">
+      <div style="background:white; padding:25px; border-radius:12px; font-weight:900; font-size:0.95em; line-height:1.8; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+        12年ネットビジネスをやってきて<br>
+        <span class="highlight-red" style="font-size:1.1em;">これを超えるゼロイチ案件<br>をみたことがない。</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Slide 18: Difference from general MNP -->
+<section>
+  <div class="slide-header">一般的なMNP転売との違い</div>
+  <ul class="check-list" style="font-size:1.2em; margin-top:30px;">
+    <li>格安SIMを独自で用意できる</li>
+    <li>高額CBを出してる店舗を用意できる</li>
+    <li>毎月の費用が半分以下</li>
+    <li>MNPのその先を見せられる</li>
+  </ul>
+</section>
+
+<!-- Slide 19: SIM comparison -->
+<section>
+  <div class="slide-header">格安SIMと池田モバイルの比較</div>
+  <table>
+    <thead>
+      <tr><th></th><th>一般的な格安SIM</th><th>池田モバイル</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>回線数</strong></td><td>上限あり</td><td><strong style="color:var(--green);">上限なし</strong></td></tr>
+      <tr><td><strong>費用</strong></td><td>2000円〜4000円</td><td><strong>3000円〜</strong></td></tr>
+      <tr><td><strong>予約番号発行までの期間</strong></td><td>1日から2週間</td><td><strong style="color:var(--green);">即日</strong></td></tr>
+      <tr><td><strong>審査落ちのリスク</strong></td><td>あり</td><td><strong style="color:var(--green);">なし</strong></td></tr>
+      <tr><td><strong>クレカ</strong></td><td>必要（楽天は除く）</td><td><strong style="color:var(--green);">不要</strong></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- Slide 20: General vs Ikeda comparison -->
+<section>
+  <div class="slide-header">一般的なMNP転売との比較</div>
+  <table>
+    <thead>
+      <tr><th></th><th>一般</th><th>池田式</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>格安SIM</strong></td><td>他社</td><td><strong style="color:var(--green);">自社</strong></td></tr>
+      <tr><td><strong>CB</strong></td><td>1.5万〜2万</td><td><strong style="color:var(--red);">3万〜6万</strong></td></tr>
+      <tr><td><strong>維持費用</strong></td><td>3000円〜7000円</td><td><strong style="color:var(--green);">300円〜2000円</strong></td></tr>
+      <tr><td><strong>MNP後の展開</strong></td><td>なし</td><td><strong style="color:var(--green);">あり</strong></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- Slide 21: Free support -->
+<section>
+  <div class="slide-header">とはいえいきなり一人でやるのは無理</div>
+  <p class="big-center" style="line-height:1.6 !important;">
+    日給25万稼いだ<br>MNP転売を<br>
+    <span class="highlight-red" style="font-size:1.1em;">無料でサポートします</span>
+  </p>
+</section>
+
+<!-- Slide 22: Condition -->
+<section>
+  <div class="slide-header">条件</div>
+  <p class="big-center" style="font-size:1.3em !important; line-height:1.6 !important;">
+    私が運営する<br>
+    「一般社団法人 全国事業協会」の<br>
+    <span class="highlight-navy">ビジネスパートナーとして参加すること</span>
+  </p>
+</section>
+
+<!-- Slide 23: Why agency is the condition -->
+<section>
+  <div class="slide-header">なぜ代理店参加が条件なのか？</div>
+  <div style="background:white; border-radius:12px; padding:30px; margin-top:15px; box-shadow:0 2px 10px rgba(0,0,0,0.1);">
+    <p style="font-size:0.95em; font-weight:700; margin-bottom:15px;">理由はシンプル。</p>
+    <p style="font-size:1.1em; font-weight:900; line-height:1.6;">
+      私が12年かけて磨いてきた<br>
+      <span class="highlight-red">「池田式MNP手法」</span>は<br>
+      <span class="highlight-navy">代理店パートナーにしか公開しません。</span>
+    </p>
+    <p style="font-size:0.8em; margin-top:20px; color:#555; line-height:1.6;">
+      この手法には私の自社SIM・店舗ネットワーク・独自ルートがすべて含まれています。<br>
+      本気でやる人にだけ、本気のノウハウを渡したい。
+    </p>
+  </div>
+</section>
+
+<!-- Slide 24: User vs Agent comparison -->
+<section>
+  <div class="slide-header">ユーザーと代理店、こんなに違います</div>
+  <table style="font-size:0.7em;">
+    <thead>
+      <tr><th></th><th>ユーザー</th><th style="background:var(--gold); color:white;">代理店</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>MNP手法</strong></td><td>一般的な手法のみ</td><td><strong style="color:var(--red);">池田式フル公開</strong></td></tr>
+      <tr><td><strong>1回のMNP収入</strong></td><td>最大10万</td><td><strong style="color:var(--red);">最大25万</strong></td></tr>
+      <tr><td><strong>インフラ継続報酬</strong></td><td>なし</td><td><strong style="color:var(--green);">毎月発生</strong></td></tr>
+      <tr><td><strong>組織構築</strong></td><td>なし</td><td><strong style="color:var(--green);">あなたの下にメンバー</strong></td></tr>
+      <tr><td><strong>紹介報酬</strong></td><td>なし</td><td><strong style="color:var(--green);">1件あたり数千円〜</strong></td></tr>
+      <tr><td><strong>20万円保証</strong></td><td>なし</td><td><strong style="color:var(--green);">あり</strong></td></tr>
+      <tr><td><strong>初期費用</strong></td><td>0円</td><td>44,440円</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- Slide 25: 1-year comparison -->
+<section>
+  <div class="slide-header">1年後、これだけ差がつきます</div>
+  <div class="compare-box">
+    <div class="compare-item user-box">
+      <h3 style="color:#999;">ユーザーの1年間</h3>
+      <p style="font-size:0.75em;">MNP 1回目: 最大10万</p>
+      <p style="font-size:0.75em;">MNP 2回目: 最大10万</p>
+      <p style="font-size:0.75em;">継続収入: なし</p>
+      <hr>
+      <p style="font-size:1em; font-weight:900; text-align:center;">年間合計: <span style="font-size:1.2em;">最大20万円</span></p>
+    </div>
+    <div class="compare-item agent-box">
+      <h3 style="color:var(--gold);">代理店の1年間</h3>
+      <p style="font-size:0.75em;">MNP 1回目: <strong style="color:var(--red);">最大25万</strong></p>
+      <p style="font-size:0.75em;">MNP 2回目: <strong style="color:var(--red);">最大25万</strong></p>
+      <p style="font-size:0.75em;">継続収入: <strong style="color:var(--green);">年間30万〜60万</strong></p>
+      <p style="font-size:0.75em;">組織報酬: さらに上乗せ</p>
+      <hr>
+      <p style="font-size:1em; font-weight:900; text-align:center;">年間合計: <span style="color:var(--red); font-size:1.2em;">80万〜110万＋&alpha;</span></p>
+    </div>
+  </div>
+  <div class="diff-highlight" style="margin-top:15px;">差額: <span class="highlight-red">60万〜90万以上</span></div>
+</section>
+
+<!-- Slide 26: Phase 1 -->
+<section>
+  <div class="slide-header">MNP&times;全国事業協会の2つのフェーズ</div>
+  <div class="phase-box">
+    <div class="phase-num">フェーズ1：まず稼ぐ</div>
+    <div class="phase-title">MNP転売サポート（無料）<br>＋<br>代理店事業スタート</div>
+    <p style="font-size:0.9em; color:var(--gold); font-weight:900; margin-top:15px;">初月から一括収入＋継続収入の土台</p>
+  </div>
+</section>
+
+<!-- Slide 27: Phase 2 -->
+<section>
+  <div class="slide-header">MNP&times;全国事業協会の2つのフェーズ</div>
+  <div class="phase-box">
+    <div class="phase-num">フェーズ2：継続収入を作る</div>
+    <div class="phase-title">扱う商品は「インフラ」</div>
+    <p style="font-size:1.1em; font-weight:700; margin:15px 0;">
+      格安SIM ／ 電気 ／ ガス<br>
+      ウォーターサーバー ／ Wi-Fi ／ 光回線
+    </p>
+    <p style="color:var(--red); font-weight:900; font-size:0.95em;">
+      人が生活する限り、絶対になくならない支出<br>
+      ＝ あなたの収入が積みあがる
+    </p>
+  </div>
+</section>
+
+<!-- Slide 28: Organization grows -->
+<section>
+  <div class="slide-header">さらに ── あなたの組織が育つ仕組み</div>
+  <div style="text-align:center; margin:20px 0;">
+    <p style="font-size:1em; font-weight:700;">製品を使ってくれた方に<br>
+    <span class="highlight-red">5万円〜10万円プレゼント企画</span>を実施</p>
+  </div>
+  <div class="org-chart">
+    <div class="org-you">あなた</div>
+    <div class="org-line">&darr;&ensp;&darr;&ensp;&darr;</div>
+    <div class="org-members">
+      <div class="org-member">Aさん（自動加入）</div>
+      <div class="org-member">Bさん（自動加入）</div>
+      <div class="org-member">Cさん（自動加入）</div>
+    </div>
+  </div>
+  <p style="text-align:center; font-weight:900; font-size:0.9em; margin-top:15px;">
+    &rarr; 新メンバーはあなたの組織に<span class="highlight-red">直接つく</span>
+  </p>
+  <p style="text-align:center; font-size:0.8em; color:#666;">あなたが営業しなくても、組織が自動で育つ</p>
+</section>
+
+<!-- Slide 29: Cost recovery -->
+<section>
+  <div class="slide-header">44,440円は"初日で"回収できます</div>
+  <div class="profit-calc">
+    <div class="formula">代理店 初期費用: <strong>44,440円</strong></div>
+    <div class="formula" style="font-size:1em;">&darr;</div>
+    <div class="formula">池田式MNP 1回目の利益: <strong style="color:var(--red); font-size:1.2em;">15万〜25万</strong></div>
+    <div class="formula" style="font-size:0.7em; color:#888;">（※この手法は代理店参加者のみに公開）</div>
+    <div class="formula" style="font-size:1em;">&darr;</div>
+    <div class="result">差し引き: +105,560円〜+205,560円</div>
+    <div class="formula" style="margin-top:10px; font-weight:900;">→ 初日で10万〜20万のプラス</div>
+  </div>
+  <p style="text-align:center; font-weight:900; font-size:0.85em; margin-top:15px;">
+    44,440円は「コスト」ではなく<br><span class="highlight-red">15万〜25万を稼ぐための「投資」</span>
+  </p>
+</section>
+
+<!-- Slide 30: Revenue simulation -->
+<section>
+  <div class="slide-header">代理店で1年間やるとこうなる</div>
+  <table class="sim-table">
+    <thead>
+      <tr><th>月</th><th>MNP収入</th><th>継続収入</th><th>合計</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>1ヶ月目</strong></td><td style="color:var(--red); font-weight:900;">15万〜25万</td><td>0円</td><td><strong>15万〜25万</strong></td></tr>
+      <tr><td><strong>3ヶ月目</strong></td><td>-</td><td style="color:var(--green); font-weight:700;">月1万〜3万</td><td><strong>月1万〜3万</strong></td></tr>
+      <tr><td><strong>6ヶ月目</strong></td><td style="color:var(--red); font-weight:900;">15万〜25万</td><td style="color:var(--green); font-weight:700;">月3万〜5万</td><td><strong>18万〜30万</strong></td></tr>
+      <tr><td><strong>12ヶ月目</strong></td><td>-</td><td style="color:var(--green); font-weight:900;">月5万〜10万</td><td><strong>月5万〜10万</strong></td></tr>
+    </tbody>
+  </table>
+  <div style="display:flex; gap:10px; margin-top:15px; text-align:center;">
+    <div style="flex:1; background:var(--red); color:white; padding:10px; border-radius:8px; font-weight:700; font-size:0.75em;">MNP = 一括収入（攻め）</div>
+    <div style="flex:1; background:var(--green); color:white; padding:10px; border-radius:8px; font-weight:700; font-size:0.75em;">インフラ = 継続収入（守り）</div>
+    <div style="flex:1; background:var(--gold); color:white; padding:10px; border-radius:8px; font-weight:700; font-size:0.75em;">組織 = 拡張収入（増幅）</div>
+  </div>
+</section>
+
+<!-- Slide 31: Student result H -->
+<section>
+  <div class="slide-header">指導してきた生徒さんの実績：Hさん初月61万</div>
+  <div class="result-card">
+    <div class="name">Hさん</div>
+    <div class="result-amount">初月 61万円</div>
+    <div class="detail">
+      「先日、初めてMNPをさせて頂きました♪<br>
+      家族分も一気にMNPをさせて頂き、<br>
+      初めての利益を得ることが出来ましたので報告させて頂きます<br>
+      全てiPhone14 128GBで売却時1,680,000円<br>
+      <strong style="color:var(--red);">粗利61万円でした</strong>」
+    </div>
+  </div>
+</section>
+
+<!-- Slide 32: Student result Y -->
+<section>
+  <div class="slide-header">指導してきた生徒さんの実績：Yさん2か月で150万</div>
+  <div class="result-card">
+    <div class="name">Yさん</div>
+    <div class="result-amount">2ヶ月で 150万円</div>
+    <div class="detail">
+      「抜けてたのがあったので150万いってます！」<br>
+      「池田さんと青山さんや他のサポーターさん達のお陰様です！」
+    </div>
+  </div>
+</section>
+
+<!-- Slide 33: Student result M -->
+<section>
+  <div class="slide-header">指導してきた生徒さんの実績：Mさん初月48万</div>
+  <div class="result-card">
+    <div class="name">Mさん</div>
+    <div class="result-amount">初月 48万円</div>
+    <div class="detail">
+      「2月より無料モニター開始ですが、<br>
+      2、3月で484,100円です。<br>
+      3月MNPした分でiPhone12 64gb 3台は<br>
+      まだ買取屋にだしていないので、4月分にしたいと思います。」
+    </div>
+  </div>
+</section>
+
+<!-- Slide 34: Student result K -->
+<section>
+  <div class="slide-header">指導してきた生徒さんの実績：Kさん1日で77万</div>
+  <div class="result-card">
+    <div class="name">Kさん</div>
+    <div class="result-amount">1日で 77万円</div>
+    <div class="detail">
+      「655,000円です。架電2回したあとに現金書留で届きます。」<br>
+      「群馬は6回線でキャッシュバック12万円でした。」
+    </div>
+  </div>
+</section>
+
+<!-- Slide 35: Many succeed from month 1 -->
+<section>
+  <div class="slide-header">初月から成果を出す人多数</div>
+  <div style="display:flex; gap:15px; margin-top:15px;">
+    <div class="result-card" style="flex:1; padding:15px;">
+      <div class="result-amount" style="font-size:1.3em;">21万分</div>
+      <div class="detail" style="font-size:0.65em;">「個人分で家族分を契約。全部で7台の変更で1台30,000円分で21万分です」</div>
+    </div>
+    <div class="result-card" style="flex:1; padding:15px;">
+      <div class="result-amount" style="font-size:1.3em;">売上40万</div>
+      <div class="detail" style="font-size:0.65em;">「池田さんがいなかったら昨日メゲてました。二度と行ってないかもしれません。」</div>
+    </div>
+    <div class="result-card" style="flex:1; padding:15px;">
+      <div class="result-amount" style="font-size:1.3em;">即回収</div>
+      <div class="detail" style="font-size:0.65em;">「すぐに参加費も回収することができました。本当に有難う御座いました。」</div>
+    </div>
+  </div>
+</section>
+
+<!-- Slide 36: FAQ -->
+<section>
+  <div class="slide-header">こんな不安、ありませんか？</div>
+  <div class="qa-item">
+    <div class="q">Q. 営業とかしたことないけど大丈夫？</div>
+    <div class="a">&rarr; インフラは「今より安くなる」だけ。営業不要。切り替えるだけ。</div>
+  </div>
+  <div class="qa-item">
+    <div class="q">Q. 44,440円が不安...</div>
+    <div class="a">&rarr; MNP1回で15万〜25万。初日で余裕で回収。20万円保証もあり。</div>
+  </div>
+  <div class="qa-item">
+    <div class="q">Q. 途中でやめたくなったら？</div>
+    <div class="a">&rarr; 12ヶ月の継続。でもMNPを年2回やるだけで何倍にもなる。</div>
+  </div>
+  <div class="qa-item">
+    <div class="q">Q. 本当に継続収入になるの？</div>
+    <div class="a">&rarr; 電気・ガス・SIMは生活に必須。解約率が極めて低い。</div>
+  </div>
+</section>
+
+<!-- Slide 37: Registration benefits -->
+<section>
+  <div class="slide-header">代理店登録特典</div>
+  <div style="margin-top:30px;">
+    <div style="background:white; padding:25px; border-radius:12px; margin:15px 0; border-left:5px solid var(--gold); box-shadow:0 2px 10px rgba(0,0,0,0.08);">
+      <p style="font-weight:900; font-size:1.1em;">&#10102; CB案件が悪かった時に<span class="highlight-red">20万円獲得</span>に近づける手法</p>
+    </div>
+    <div style="background:white; padding:25px; border-radius:12px; margin:15px 0; border-left:5px solid var(--gold); box-shadow:0 2px 10px rgba(0,0,0,0.08);">
+      <p style="font-weight:900; font-size:1.1em;">&#10103; 登録費用（44,440円＋システム利用料）を<span class="highlight-green">ペイ（カバー）できる手法</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- Slide 38: Registration costs -->
+<section>
+  <div class="slide-header">代理店登録する際の費用</div>
+  <table>
+    <thead>
+      <tr><th>項目</th><th>金額</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>スターターキット</strong></td><td>38,060円</td></tr>
+      <tr><td><strong>ウェブシステム初期登録料</strong></td><td>2,200円</td></tr>
+      <tr><td><strong>会員ウェブシステム月額利用料</strong></td><td>4,180円/月</td></tr>
+      <tr><td style="background:var(--navy); color:white; font-weight:900;">合計（初月費用）</td><td style="background:var(--navy); color:var(--gold); font-weight:900; font-size:1.2em;">44,440円</td></tr>
+      <tr><td><strong>商品月額費用</strong></td><td>別途</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- Slide 39: Products -->
+<section>
+  <div class="slide-header">対象となる製品</div>
+  <div class="product-list">
+    <div class="product-item">youme<br>モバイル</div>
+    <div class="product-item">世界データ<br>WIFI</div>
+    <div class="product-item">アクアバンク</div>
+  </div>
+</section>
+
+<!-- Slide 40: Everything you get -->
+<section>
+  <div class="slide-header">あなたが手に入れるもの</div>
+  <div class="benefits-grid">
+    <div class="benefit-item">池田式MNP手法のフル公開（代理店限定）</div>
+    <div class="benefit-item">1日15万〜25万の即金力</div>
+    <div class="benefit-item">毎月積み上がる継続収入</div>
+    <div class="benefit-item">自動で育つ組織</div>
+    <div class="benefit-item">20万円保証（損しない設計）</div>
+    <div class="benefit-item">12年の実績に基づくマンツーマン指導</div>
+    <div class="benefit-item">登録費用をペイできる特典付き</div>
+    <div class="benefit-item">翌年継続時は再度MNP指導あり</div>
+  </div>
+  <div class="diff-highlight" style="margin-top:20px;">
+    必要な投資: <span class="highlight-red">44,440円</span>（初日で回収可能）
+  </div>
+</section>
+
+<!-- Slide 41: Rules -->
+<section>
+  <div class="slide-header">規約</div>
+  <div class="rule-item">・今回の特別特典 及び MNP手法は<strong>口外禁止</strong>。勝手に他人に教えない事。</div>
+  <div class="rule-item">・<strong>20万円保証</strong>をつけるので年間2回できるので<strong>12ヶ月は継続</strong>（損しないので）</div>
+  <div class="rule-item">・翌年も継続する場合は、<strong>再度MNPの指導</strong></div>
+</section>
+
+<!-- Slide 42: User option -->
+<section>
+  <div class="slide-header">いきなり代理店はちょっと・・・</div>
+  <p class="big-center" style="font-size:1.3em !important; line-height:1.6 !important;">
+    ユーザーとしての参加でも OK<br>
+    ただし還元率は最大 25万では<br>なく<span class="highlight-red">最大10万</span>になる
+  </p>
+  <p class="small-note" style="text-align:center; font-size:0.8em; margin-top:20px;">
+    ※池田式MNP手法のフル公開は代理店限定です
+  </p>
+</section>
+
+<!-- Slide 43: Final closing -->
+<section>
+  <div class="slide-header">あなたの選択は？</div>
+  <div class="closing-options">
+    <div class="option-a">
+      <h3 style="text-align:center; color:#999; font-size:0.95em;">選択肢A: ユーザー</h3>
+      <ul style="list-style:none; padding:0; font-size:0.9em; margin-top:10px;">
+        <li>&#9679; 一般的なMNP手法のみ</li>
+        <li>&#9679; 最大10万/回</li>
+        <li>&#9679; 継続収入なし</li>
+        <li>&#9679; 費用0円</li>
+      </ul>
+    </div>
+    <div class="option-b">
+      <h3 style="text-align:center; font-size:0.95em;">選択肢B: 代理店</h3>
+      <ul style="list-style:none; padding:0; font-size:0.9em; margin-top:10px;">
+        <li>&#9733; <strong>池田式フル公開</strong></li>
+        <li>&#9733; <strong style="color:var(--red);">最大25万/回</strong></li>
+        <li>&#9733; <strong style="color:var(--green);">継続収入あり</strong></li>
+        <li>&#9733; 組織構築あり</li>
+        <li>&#9733; 20万円保証あり</li>
+        <li>&#9733; 費用44,440円（初日回収）</li>
+      </ul>
+    </div>
+  </div>
+  <div class="closing-msg" style="margin-top:15px; font-size:0.9em;">
+    電気もガスもSIMも、止まらない。<br>
+    <span class="highlight-red" style="font-size:1.1em;">だからあなたの収入も、止まらない。</span>
+  </div>
+</section>
+
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.min.js"></script>
+<script>
+Reveal.initialize({
+  hash: true,
+  slideNumber: true,
+  width: 1280,
+  height: 720,
+  margin: 0.04,
+  transition: 'slide',
+  backgroundTransition: 'fade',
+});
+</script>
+</body>
+</html>
