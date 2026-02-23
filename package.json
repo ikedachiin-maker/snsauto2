@@ -1,0 +1,41 @@
+{
+  "name": "meta-ads-automation",
+  "version": "1.0.0",
+  "description": "Meta（Facebook/Instagram）広告の自動化ツールセット - 6つのMCPサーバー",
+  "main": "index.js",
+  "scripts": {
+    "setup": "node setup.js",
+    "test": "node integration-test.js",
+    "install-all": "node -e \"const {execSync} = require('child_process'); const modules = ['meta-ad-creative-mcp', 'meta-campaign-mcp', 'meta-budget-mcp', 'meta-experiment-mcp', 'meta-tracking-mcp', 'meta-report-mcp']; modules.forEach(m => { console.log('Installing', m); execSync('npm install', {cwd: m, stdio: 'inherit'}); });\"",
+    "test:module1": "cd meta-ad-creative-mcp && npm test",
+    "test:module2": "cd meta-campaign-mcp && npm test",
+    "test:module3": "cd meta-budget-mcp && npm test",
+    "test:module4": "cd meta-experiment-mcp && npm test",
+    "test:module5": "cd meta-tracking-mcp && npm test",
+    "test:module6": "cd meta-report-mcp && npm test"
+  },
+  "keywords": [
+    "meta",
+    "facebook",
+    "instagram",
+    "ads",
+    "automation",
+    "marketing",
+    "mcp",
+    "claude",
+    "ai"
+  ],
+  "author": "ikedachiin@gmail.com",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-repo/meta-ads-automation"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.0"
+  }
+}
