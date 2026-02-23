@@ -9,6 +9,9 @@
     "start": "next start",
     "lint": "next lint",
     "scrape": "npx tsx scripts/scrape.ts",
+    "scrape:kaden": "npx tsx scripts/scrape-kaden.ts",
+    "add-prices": "npx tsx scripts/add-manual-prices.ts",
+    "fetch-prices": "npx tsx scripts/fetch-retail-prices.ts",
     "db:init": "npx tsx scripts/init-db.ts"
   },
   "dependencies": {
