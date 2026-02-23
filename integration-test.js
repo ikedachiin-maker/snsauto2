@@ -30,9 +30,9 @@ const modules = [
     id: 1,
     name: 'meta-ad-creative-mcp',
     title: 'クリエイティブ自動生成',
-    testScript: 'test/smoke-test.js',
+    testScript: 'test/smoke-test.cjs',
     description: '画像生成（Gemini API）+ コピー生成（Claude API）',
-    hasTest: false, // testディレクトリなし
+    hasTest: true,
   },
   {
     id: 2,
