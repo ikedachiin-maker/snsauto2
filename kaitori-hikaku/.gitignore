@@ -3,3 +3,5 @@ node_modules/
 data/kaitori.db
 *.tsbuildinfo
 .vercel/
+
+.vercel
