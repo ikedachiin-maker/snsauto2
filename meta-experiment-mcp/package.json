@@ -1,0 +1,13 @@
+{
+  "name": "meta-experiment-mcp",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "MCP server for Meta A/B testing automation (Experiments API, statistical analysis, winner scaling)",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0"
+  }
+}

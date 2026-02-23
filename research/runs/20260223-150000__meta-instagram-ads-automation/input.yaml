@@ -1,0 +1,13 @@
+topic: "Meta広告・Instagram広告 自動運用ツール構築"
+query: "Meta Marketing API、Instagram Graph API を活用した広告の自動入稿・運用・最適化ツールの構築方法"
+subtopics:
+  - Meta Marketing API 概要・認証方法
+  - Instagram Graph API 広告関連エンドポイント
+  - 広告キャンペーン自動作成ワークフロー
+  - クリエイティブ自動生成
+  - A/Bテスト自動化
+  - 予算最適化アルゴリズム
+  - レポート自動生成
+  - 既存ツール・競合調査
+date: "2026-02-23"
+mode: deep

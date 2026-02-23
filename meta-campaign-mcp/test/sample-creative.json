@@ -1,0 +1,31 @@
+{
+  "version": "1.0",
+  "created_at": "2026-02-23T12:00:00.000Z",
+  "campaign_id": "test_campaign_001",
+  "creatives": [
+    {
+      "creative_id": "crt_1708704000000_feed_square",
+      "format": "feed_square",
+      "image": {
+        "filename": "feed_square_0.jpg",
+        "path": "feed_square_0.jpg",
+        "size_bytes": 102400,
+        "aspect_ratio": "1:1",
+        "pixels": "1080x1080",
+        "mime_type": "image/jpeg"
+      },
+      "copy": {
+        "headline": "今すぐ始める副業術",
+        "primary_text": "月5万円の副収入を実現！初心者でも安心のステップバイステップガイド。期間限定で無料公開中。",
+        "description": "副業スタートガイド無料配布中",
+        "cta_type": "learn_more"
+      },
+      "metadata": {
+        "product_name": "副業スタートガイド",
+        "target_audience": "30代会社員",
+        "tone": "casual",
+        "style": "photo_realistic"
+      }
+    }
+  ]
+}

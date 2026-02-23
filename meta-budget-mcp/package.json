@@ -1,0 +1,13 @@
+{
+  "name": "meta-budget-mcp",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "MCP server for Meta Ads budget optimization (CBO, automated rules, bid strategy)",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0"
+  }
+}

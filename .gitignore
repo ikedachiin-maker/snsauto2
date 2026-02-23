@@ -1,1 +1,11 @@
 *.mp4
+apikey.txt
+cookie.txt
+.env
+.env.*
+!.env.example
+!.env.*.example
+nul
+node_modules/
+__pycache__/
+.claude/

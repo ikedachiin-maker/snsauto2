@@ -1,0 +1,13 @@
+{
+  "name": "meta-campaign-mcp",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "MCP server for Meta campaign auto-creation via Marketing API v25.0 (with dry_run mode)",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0"
+  }
+}

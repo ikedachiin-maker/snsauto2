@@ -1,0 +1,13 @@
+{
+  "name": "meta-ad-creative-mcp",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "MCP server for Meta ad creative generation (image + copy via Gemini + Claude)",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0"
+  }
+}
