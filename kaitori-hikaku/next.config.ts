@@ -13,6 +13,10 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  serverExternalPackages: ["sql.js"],
+  outputFileTracingIncludes: {
+    "/**": ["./data/**"],
+  },
 };
 
 export default nextConfig;
