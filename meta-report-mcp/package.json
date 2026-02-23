@@ -1,0 +1,13 @@
+{
+  "name": "meta-report-mcp",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "MCP server for Meta Ads report generation (Insights API, performance analysis, Markdown/CSV export)",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0"
+  }
+}

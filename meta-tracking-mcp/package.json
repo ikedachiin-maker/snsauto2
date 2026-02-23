@@ -1,0 +1,13 @@
+{
+  "name": "meta-tracking-mcp",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "MCP server for Meta Pixel + Conversions API tracking (event sending, deduplication, diagnostics)",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0"
+  }
+}
