@@ -11,27 +11,68 @@ import {
   DUMMY_AD_NAMES,
 } from '@/lib/mock-data';
 import type { Campaign, AdSet, Ad, SetupCheck, CampaignObjective, CampaignStatus } from '@/lib/types';
+import { callMCP, isDemoMode } from '@/lib/mcp-client';
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
     const { action, params } = body;
 
-    // デモモード: 実際のMCP呼び出しの代わりにモックデータを返す
-    const mockResponse = {
+    // デモモード判定
+    if (isDemoMode()) {
+      // デモモード: モックデータを返す
+      const mockResponse = {
+        action,
+        params,
+        result: {
+          status: 'success',
+          message: 'デモモード: 実際のAPI呼び出しは行われていません',
+          data: generateMockData(action, params),
+        },
+        timestamp: new Date().toISOString(),
+      };
+
+      return NextResponse.json(mockResponse);
+    }
+
+    // 本番モード: 実際のMCP呼び出し
+    const mcpResult = await callMCP('meta-campaign-mcp', action, params);
+
+    if (!mcpResult.success) {
+      return NextResponse.json(
+        {
+          action,
+          params,
+          result: {
+            status: 'error',
+            message: mcpResult.error?.message || 'MCP呼び出しに失敗しました',
+            error: mcpResult.error,
+          },
+          timestamp: new Date().toISOString(),
+        },
+        { status: 500 }
+      );
+    }
+
+    return NextResponse.json({
       action,
       params,
       result: {
         status: 'success',
-        message: 'デモモード: 実際のAPI呼び出しは行われていません',
-        data: generateMockData(action, params),
+        message: 'MCP経由で実行されました',
+        data: mcpResult.data,
       },
       timestamp: new Date().toISOString(),
-    };
+    });
 
-    return NextResponse.json(mockResponse);
   } catch (error: any) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json(
+      {
+        error: error.message,
+        stack: process.env.NODE_ENV === 'development' ? error.stack : undefined,
+      },
+      { status: 500 }
+    );
   }
 }
 
