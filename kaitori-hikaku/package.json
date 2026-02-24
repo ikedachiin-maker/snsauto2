@@ -12,6 +12,8 @@
     "scrape:kaden": "npx tsx scripts/scrape-kaden.ts",
     "add-prices": "npx tsx scripts/add-manual-prices.ts",
     "fetch-prices": "npx tsx scripts/fetch-retail-prices.ts",
+    "fetch-prices:bulk": "python scripts/fetch-retail-prices-bulk.py",
+    "merge-prices": "node scripts/merge-retail-prices.js",
     "db:init": "npx tsx scripts/init-db.ts"
   },
   "dependencies": {
