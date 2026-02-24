@@ -56,6 +56,20 @@ function categorize(name: string): string {
   if (lower.includes("電動歯ブラシ") || lower.includes("oral-b") || lower.includes("ドルツ") || lower.includes("sonicare") || lower.includes("ソニッケアー")) return "電動歯ブラシ";
   // PC周辺
   if (lower.includes("gpu") || lower.includes("グラフィック") || lower.includes("ssd") || lower.includes("電源") || lower.includes("ルーター") || lower.includes("router") || lower.includes("マウス") || lower.includes("キーボード")) return "PC周辺機器";
+  // 生活家電
+  if (lower.includes("ミシン") || lower.includes("アイロン") || lower.includes("食洗") || lower.includes("乾燥機") || lower.includes("洗濯") || lower.includes("冷蔵庫") || lower.includes("電子辞書")) return "生活家電";
+  // スポーツ用品
+  if (lower.includes("テニス") || lower.includes("ラケット") || lower.includes("自転車") || lower.includes("スキー") || lower.includes("スポーツ") || lower.includes("プロテイン") || lower.includes("トレーニング") || lower.includes("ランニング") || lower.includes("フィットネス")) return "スポーツ用品";
+  // カー用品
+  if (lower.includes("カーナビ") || lower.includes("ドライブレコーダー") || lower.includes("ドラレコ") || lower.includes("レーダー探知") || lower.includes("car ") || lower.includes("チャイルドシート") || lower.includes("タイヤ")) return "カー用品";
+  // 住宅設備
+  if (lower.includes("給湯") || lower.includes("ガスコンロ") || lower.includes("ビルトイン") || lower.includes("食器洗い") || lower.includes("換気扇") || lower.includes("浄水") || lower.includes("ウォシュレット") || lower.includes("便座") || lower.includes("パロマ") || lower.includes("リンナイ") || lower.includes("ノーリツ")) return "住宅設備";
+  // ホビー
+  if (lower.includes("ラジコン") || lower.includes("ドローン") || lower.includes("プラモ") || lower.includes("フィギュア") || lower.includes("ミニカー") || lower.includes("トイ") || lower.includes("レゴ") || lower.includes("lego")) return "ホビー";
+  // 情報家電（プリンター、FAX、電子辞書等）
+  if (lower.includes("プリンター") || lower.includes("printer") || lower.includes("fax") || lower.includes("シュレッダー") || lower.includes("ラベル") || lower.includes("テプラ") || lower.includes("スキャナ")) return "情報家電";
+  // プロジェクター
+  if (lower.includes("プロジェクター") || lower.includes("projector")) return "プロジェクター";
   return "その他家電";
 }
 
@@ -142,10 +156,14 @@ async function main() {
   db.run("PRAGMA foreign_keys = ON");
 
   let totalProducts = 0;
+  let newCount = 0;
+  let updatedCount = 0;
   let page = 1;
-  const maxPages = 100; // 家電は商品数が多い
+  const maxPages = 250; // 家電は商品数が多い（全223ページ）
 
-  console.log("Starting scrape of kadenkaitori.tokyo...");
+  console.log("========================================");
+  console.log("  kadenkaitori.tokyo 全カテゴリスクレイピング");
+  console.log("========================================\n");
 
   while (page <= maxPages) {
     const url =
@@ -177,8 +195,8 @@ async function main() {
           let productId: number;
 
           if (existing.length > 0 && existing[0].values.length > 0) {
-            // Product exists - just add new price from this shop
             productId = existing[0].values[0][0] as number;
+            updatedCount++;
           } else {
             db.run(
               `INSERT INTO products (name, brand, jan_code, image_url, category, slug)
@@ -190,6 +208,8 @@ async function main() {
               [p.jan_code]
             );
             productId = idResult[0].values[0][0] as number;
+            newCount++;
+            console.log(`    + 新規: ${p.name.substring(0, 55)} [${category}]`);
           }
 
           // Insert price record for this shop
@@ -207,7 +227,7 @@ async function main() {
       }
 
       totalProducts += products.length;
-      console.log(`  Found ${products.length} products (total: ${totalProducts})`);
+      console.log(`  ${products.length}商品 (計: ${totalProducts}, 新規: ${newCount}, 既存: ${updatedCount})`);
 
       // Save every 5 pages
       if (page % 5 === 0) {
@@ -231,7 +251,15 @@ async function main() {
   fs.writeFileSync(DB_PATH, Buffer.from(data));
   db.close();
 
-  console.log(`\nScrape complete. Total products from kadenkaitori.tokyo: ${totalProducts}`);
+  console.log("\n========================================");
+  console.log("  結果サマリー");
+  console.log("========================================");
+  console.log(`  総取得: ${totalProducts}商品`);
+  console.log(`  新規追加: ${newCount}商品`);
+  console.log(`  既存更新: ${updatedCount}商品`);
+  console.log("========================================\n");
+  console.log("次のステップ:");
+  console.log("  npm run export-json");
 }
 
 main().catch(console.error);

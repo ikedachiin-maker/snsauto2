@@ -1,0 +1,66 @@
+{
+  "mcpServers": {
+    "meta-ad-creative": {
+      "command": "node",
+      "args": [
+        "C:/Users/ysfm0664/OneDrive/Desktop/snsauto/meta-ad-creative-mcp/index.js"
+      ],
+      "env": {
+        "ANTHROPIC_API_KEY": "${ANTHROPIC_API_KEY}",
+        "GEMINI_API_KEY": "${GEMINI_API_KEY}"
+      }
+    },
+    "meta-campaign": {
+      "command": "node",
+      "args": [
+        "C:/Users/ysfm0664/OneDrive/Desktop/snsauto/meta-campaign-mcp/index.js"
+      ],
+      "env": {
+        "META_ACCESS_TOKEN": "${META_ACCESS_TOKEN}",
+        "META_AD_ACCOUNT_ID": "${META_AD_ACCOUNT_ID}",
+        "META_PAGE_ID": "${META_PAGE_ID}"
+      }
+    },
+    "meta-budget": {
+      "command": "node",
+      "args": [
+        "C:/Users/ysfm0664/OneDrive/Desktop/snsauto/meta-budget-mcp/index.js"
+      ],
+      "env": {
+        "META_ACCESS_TOKEN": "${META_ACCESS_TOKEN}",
+        "META_AD_ACCOUNT_ID": "${META_AD_ACCOUNT_ID}"
+      }
+    },
+    "meta-experiment": {
+      "command": "node",
+      "args": [
+        "C:/Users/ysfm0664/OneDrive/Desktop/snsauto/meta-experiment-mcp/index.js"
+      ],
+      "env": {
+        "META_ACCESS_TOKEN": "${META_ACCESS_TOKEN}",
+        "META_AD_ACCOUNT_ID": "${META_AD_ACCOUNT_ID}"
+      }
+    },
+    "meta-tracking": {
+      "command": "node",
+      "args": [
+        "C:/Users/ysfm0664/OneDrive/Desktop/snsauto/meta-tracking-mcp/index.js"
+      ],
+      "env": {
+        "META_ACCESS_TOKEN": "${META_ACCESS_TOKEN}",
+        "META_PIXEL_ID": "${META_PIXEL_ID}",
+        "META_TEST_EVENT_CODE": "${META_TEST_EVENT_CODE}"
+      }
+    },
+    "meta-report": {
+      "command": "node",
+      "args": [
+        "C:/Users/ysfm0664/OneDrive/Desktop/snsauto/meta-report-mcp/index.js"
+      ],
+      "env": {
+        "META_ACCESS_TOKEN": "${META_ACCESS_TOKEN}",
+        "META_AD_ACCOUNT_ID": "${META_AD_ACCOUNT_ID}"
+      }
+    }
+  }
+}

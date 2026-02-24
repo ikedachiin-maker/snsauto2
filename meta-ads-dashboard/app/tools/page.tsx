@@ -2374,6 +2374,317 @@ export default function ToolsPage() {
                   </div>
                 )}
 
+                {/* ==================== Module 5: Tracking ==================== */}
+
+                {/* Module 5: Setup Check */}
+                {result.result?.data?.pixel_setup && result.result?.data?.capi_setup && (
+                  <div className="space-y-4">
+                    <div className="bg-red-50 p-4 rounded-lg">
+                      <h4 className="font-semibold text-red-900 mb-3">📡 Pixel設定状況</h4>
+                      <div className="space-y-2 text-sm">
+                        <p><strong>Pixel ID:</strong> {result.result.data.pixel_setup.pixel_id}</p>
+                        <p><strong>Pixel設置:</strong> {result.result.data.pixel_setup.pixel_installed ? '✅ 設置済み' : '❌ 未設置'}</p>
+                        <p><strong>検出イベント数:</strong> {result.result.data.pixel_setup.events_detected}件</p>
+                        <p><strong>最終イベント:</strong> {new Date(result.result.data.pixel_setup.last_event_time).toLocaleString('ja-JP')}</p>
+                      </div>
+                    </div>
+
+                    <div className="bg-purple-50 p-4 rounded-lg">
+                      <h4 className="font-semibold text-purple-900 mb-3">🔌 Conversions API設定</h4>
+                      <div className="space-y-2 text-sm">
+                        <p><strong>アクセストークン:</strong> {result.result.data.capi_setup.access_token_configured ? '✅ 設定済み' : '❌ 未設定'}</p>
+                        <p><strong>テストイベントコード:</strong> {result.result.data.capi_setup.test_event_code}</p>
+                      </div>
+                    </div>
+
+                    {result.result.data.recommendations && (
+                      <div className="bg-blue-50 p-4 rounded-lg">
+                        <h4 className="font-semibold text-blue-900 mb-2">💡 推奨事項</h4>
+                        <ul className="space-y-1">
+                          {result.result.data.recommendations.map((rec: string, idx: number) => (
+                            <li key={idx} className="text-sm text-blue-800">{rec}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+                )}
+
+                {/* Module 5: Send Event */}
+                {result.result?.data?.event_id && result.result?.data?.event_name && (
+                  <div className="space-y-4">
+                    <div className="bg-green-50 p-4 rounded-lg">
+                      <h4 className="font-semibold text-green-900 mb-3">✅ イベント送信成功</h4>
+                      <div className="grid grid-cols-2 gap-4 text-sm">
+                        <div>
+                          <p className="text-xs text-gray-600">イベントID</p>
+                          <p className="font-mono text-xs break-all">{result.result.data.event_id}</p>
+                        </div>
+                        <div>
+                          <p className="text-xs text-gray-600">イベント名</p>
+                          <p className="font-bold">{result.result.data.event_name}</p>
+                        </div>
+                        <div>
+                          <p className="text-xs text-gray-600">送信時刻</p>
+                          <p>{new Date(result.result.data.event_time * 1000).toLocaleString('ja-JP')}</p>
+                        </div>
+                        <div>
+                          <p className="text-xs text-gray-600">テストモード</p>
+                          <p>{result.result.data.test_mode ? '🧪 テスト中' : '🚀 本番'}</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-4 rounded-lg border-2 border-blue-200">
+                      <h4 className="font-semibold text-blue-900 mb-3">📊 マッチ品質スコア</h4>
+                      <div className="flex items-center gap-4">
+                        <div className={`w-20 h-20 rounded-full flex items-center justify-center text-4xl font-bold border-4 ${
+                          result.result.data.match_quality === 'A' ? 'bg-green-100 border-green-500 text-green-700' :
+                          result.result.data.match_quality === 'B' ? 'bg-blue-100 border-blue-500 text-blue-700' :
+                          result.result.data.match_quality === 'C' ? 'bg-yellow-100 border-yellow-500 text-yellow-700' :
+                          'bg-red-100 border-red-500 text-red-700'
+                        }`}>
+                          {result.result.data.match_quality}
+                        </div>
+                        <div className="flex-1">
+                          <p className="text-sm font-medium mb-2">
+                            マッチしたパラメータ: <span className="text-lg font-bold">{result.result.data.matched_parameters}</span> / {result.result.data.total_parameters}
+                          </p>
+                          <div className="w-full bg-gray-200 rounded-full h-3">
+                            <div
+                              className={`h-3 rounded-full ${
+                                result.result.data.match_quality === 'A' ? 'bg-green-500' :
+                                result.result.data.match_quality === 'B' ? 'bg-blue-500' :
+                                result.result.data.match_quality === 'C' ? 'bg-yellow-500' :
+                                'bg-red-500'
+                              }`}
+                              style={{ width: `${(result.result.data.matched_parameters / result.result.data.total_parameters) * 100}%` }}
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="bg-indigo-50 p-4 rounded-lg">
+                      <h4 className="font-semibold text-indigo-900 mb-2">🔄 重複排除ステータス</h4>
+                      <div className="space-y-1 text-sm">
+                        <p>
+                          <strong>event_id設定:</strong> {result.result.data.deduplication.event_id_set ? '✅ 設定済み' : '❌ 未設定'}
+                        </p>
+                        <p>
+                          <strong>Pixel送信:</strong> {result.result.data.deduplication.pixel_also_sending ? '✅ 併用中' : '❌ CAPIのみ'}
+                        </p>
+                        <p>
+                          <strong>重複排除:</strong> {result.result.data.deduplication.deduplicated ? '✅ 有効' : '⚠️ event_idを設定してください'}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* Module 5: Send Batch Events */}
+                {result.result?.data?.batch_size !== undefined && (
+                  <div className="space-y-4">
+                    <div className="bg-purple-50 p-4 rounded-lg">
+                      <h4 className="font-semibold text-purple-900 mb-3">📦 バッチイベント送信結果</h4>
+                      <div className="grid grid-cols-4 gap-4">
+                        <div>
+                          <p className="text-xs text-gray-600">バッチサイズ</p>
+                          <p className="text-2xl font-bold">{result.result.data.batch_size}</p>
+                        </div>
+                        <div>
+                          <p className="text-xs text-gray-600">送信成功</p>
+                          <p className="text-2xl font-bold text-green-600">{result.result.data.events_sent}</p>
+                        </div>
+                        <div>
+                          <p className="text-xs text-gray-600">送信失敗</p>
+                          <p className="text-2xl font-bold text-red-600">{result.result.data.events_failed}</p>
+                        </div>
+                        <div>
+                          <p className="text-xs text-gray-600">処理時間</p>
+                          <p className="text-2xl font-bold">{result.result.data.processing_time_ms}ms</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="bg-blue-50 p-4 rounded-lg">
+                      <h4 className="font-semibold text-blue-900 mb-2">📊 品質指標</h4>
+                      <div className="grid grid-cols-2 gap-4 text-sm">
+                        <div>
+                          <p className="text-xs text-gray-600">平均マッチ品質</p>
+                          <p className="text-3xl font-bold">{result.result.data.average_match_quality}</p>
+                        </div>
+                        <div>
+                          <p className="text-xs text-gray-600">重複排除率</p>
+                          <p className="text-3xl font-bold">{result.result.data.deduplication_rate}%</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {result.result.data.errors && result.result.data.errors.length > 0 && (
+                      <div className="bg-red-50 p-4 rounded-lg border border-red-200">
+                        <h4 className="font-semibold text-red-900 mb-2">⚠️ エラー詳細</h4>
+                        <div className="space-y-2">
+                          {result.result.data.errors.map((error: any, idx: number) => (
+                            <div key={idx} className="bg-white p-2 rounded text-sm">
+                              <p><strong>イベント #{error.event_index}:</strong> {error.error_message}</p>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                )}
+
+                {/* Module 5: Get Pixel Code */}
+                {result.result?.data?.pixel_code && (
+                  <div className="space-y-4">
+                    <div className="bg-gradient-to-r from-purple-50 to-pink-50 p-4 rounded-lg">
+                      <h4 className="font-semibold text-purple-900 mb-2">💻 生成されたコード</h4>
+                      <p className="text-sm text-gray-700">
+                        4種類のコードスニペットが生成されました。以下から必要なコードをコピーしてください。
+                      </p>
+                    </div>
+
+                    <div>
+                      <h5 className="text-sm font-semibold text-gray-800 mb-2">📌 1. Pixelベースコード（&lt;head&gt;に設置）</h5>
+                      <div className="relative">
+                        <pre className="p-4 bg-gray-900 text-green-400 rounded-lg overflow-x-auto text-xs max-h-64">
+                          {result.result.data.pixel_code.base_code}
+                        </pre>
+                        <button
+                          onClick={() => navigator.clipboard.writeText(result.result.data.pixel_code.base_code)}
+                          className="absolute top-2 right-2 px-3 py-1 bg-blue-500 text-white text-xs rounded hover:bg-blue-600"
+                        >
+                          📋 コピー
+                        </button>
+                      </div>
+                    </div>
+
+                    <div>
+                      <h5 className="text-sm font-semibold text-gray-800 mb-2">🎯 2. イベントスニペット（購入完了ページ等）</h5>
+                      <div className="relative">
+                        <pre className="p-4 bg-gray-900 text-yellow-400 rounded-lg overflow-x-auto text-xs max-h-64">
+                          {result.result.data.pixel_code.event_snippet}
+                        </pre>
+                        <button
+                          onClick={() => navigator.clipboard.writeText(result.result.data.pixel_code.event_snippet)}
+                          className="absolute top-2 right-2 px-3 py-1 bg-blue-500 text-white text-xs rounded hover:bg-blue-600"
+                        >
+                          📋 コピー
+                        </button>
+                      </div>
+                    </div>
+
+                    <div>
+                      <h5 className="text-sm font-semibold text-gray-800 mb-2">🔧 3. CAPI Handler（Node.js サーバー側）</h5>
+                      <div className="relative">
+                        <pre className="p-4 bg-gray-900 text-cyan-400 rounded-lg overflow-x-auto text-xs max-h-64">
+                          {result.result.data.pixel_code.capi_handler}
+                        </pre>
+                        <button
+                          onClick={() => navigator.clipboard.writeText(result.result.data.pixel_code.capi_handler)}
+                          className="absolute top-2 right-2 px-3 py-1 bg-blue-500 text-white text-xs rounded hover:bg-blue-600"
+                        >
+                          📋 コピー
+                        </button>
+                      </div>
+                    </div>
+
+                    <div>
+                      <h5 className="text-sm font-semibold text-gray-800 mb-2">📦 4. GTMタグテンプレート</h5>
+                      <div className="relative">
+                        <pre className="p-4 bg-gray-900 text-pink-400 rounded-lg overflow-x-auto text-xs max-h-64">
+                          {result.result.data.pixel_code.gtm_tag}
+                        </pre>
+                        <button
+                          onClick={() => navigator.clipboard.writeText(result.result.data.pixel_code.gtm_tag)}
+                          className="absolute top-2 right-2 px-3 py-1 bg-blue-500 text-white text-xs rounded hover:bg-blue-600"
+                        >
+                          📋 コピー
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* Module 5: Event Diagnostics */}
+                {result.result?.data?.diagnostics && (
+                  <div className="space-y-4">
+                    <div className="bg-purple-50 p-4 rounded-lg">
+                      <h4 className="font-semibold text-purple-900 mb-3">🔍 イベント診断結果</h4>
+                      <div className="grid grid-cols-2 gap-4 text-sm">
+                        <div>
+                          <p className="text-xs text-gray-600">Pixel ID</p>
+                          <p className="font-mono">{result.result.data.diagnostics.pixel_id}</p>
+                        </div>
+                        <div>
+                          <p className="text-xs text-gray-600">イベント数</p>
+                          <p className="text-xl font-bold">{result.result.data.diagnostics.event_count}件</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="bg-gradient-to-r from-green-50 to-blue-50 p-4 rounded-lg border-2 border-blue-200">
+                      <h4 className="font-semibold text-blue-900 mb-3">📊 マッチ品質スコア</h4>
+                      <div className="flex items-center gap-4">
+                        <div className={`w-24 h-24 rounded-full flex items-center justify-center text-5xl font-bold border-4 ${
+                          result.result.data.diagnostics.match_quality === 'A' ? 'bg-green-100 border-green-500 text-green-700' :
+                          result.result.data.diagnostics.match_quality === 'B' ? 'bg-blue-100 border-blue-500 text-blue-700' :
+                          result.result.data.diagnostics.match_quality === 'C' ? 'bg-yellow-100 border-yellow-500 text-yellow-700' :
+                          'bg-red-100 border-red-500 text-red-700'
+                        }`}>
+                          {result.result.data.diagnostics.match_quality}
+                        </div>
+                        <div className="flex-1">
+                          <p className="text-xl font-bold mb-1">
+                            {result.result.data.diagnostics.match_quality === 'A' && '優秀 - 最高品質のマッチング'}
+                            {result.result.data.diagnostics.match_quality === 'B' && '良好 - 十分なマッチング'}
+                            {result.result.data.diagnostics.match_quality === 'C' && '改善推奨 - マッチング不足'}
+                            {result.result.data.diagnostics.match_quality === 'D' && '要改善 - 深刻なマッチング不足'}
+                          </p>
+                          <p className="text-sm text-gray-600 mb-2">
+                            マッチパラメータ: {result.result.data.diagnostics.matched_parameters} / {result.result.data.diagnostics.total_parameters}
+                          </p>
+                          <div className="w-full bg-gray-200 rounded-full h-4">
+                            <div
+                              className={`h-4 rounded-full ${
+                                result.result.data.diagnostics.match_quality === 'A' ? 'bg-green-500' :
+                                result.result.data.diagnostics.match_quality === 'B' ? 'bg-blue-500' :
+                                result.result.data.diagnostics.match_quality === 'C' ? 'bg-yellow-500' :
+                                'bg-red-500'
+                              }`}
+                              style={{ width: `${(result.result.data.diagnostics.matched_parameters / result.result.data.diagnostics.total_parameters) * 100}%` }}
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {result.result.data.diagnostics.issues && result.result.data.diagnostics.issues.length > 0 && (
+                      <div className="bg-yellow-50 p-4 rounded-lg border border-yellow-200">
+                        <h4 className="font-semibold text-yellow-900 mb-2">⚠️ 検出された問題</h4>
+                        <ul className="space-y-1">
+                          {result.result.data.diagnostics.issues.map((issue: string, idx: number) => (
+                            <li key={idx} className="text-sm text-yellow-800">• {issue}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+
+                    {result.result.data.diagnostics.recommendations && (
+                      <div className="bg-blue-50 p-4 rounded-lg">
+                        <h4 className="font-semibold text-blue-900 mb-2">💡 推奨事項</h4>
+                        <ul className="space-y-1">
+                          {result.result.data.diagnostics.recommendations.map((rec: string, idx: number) => (
+                            <li key={idx} className="text-sm text-blue-800">{rec}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+                )}
+
                 {/* JSON表示 */}
                 <details className="mt-4">
                   <summary className="cursor-pointer text-sm font-medium text-gray-700">JSON詳細を表示</summary>
