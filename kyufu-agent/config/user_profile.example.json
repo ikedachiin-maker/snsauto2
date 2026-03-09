@@ -1,0 +1,76 @@
+{
+  "_comment": "このファイルをコピーして user_profile.json を作成し、実際の情報を入力してください。",
+  "_warning": "user_profile.json は絶対にGitにコミットしないでください（.gitignoreで除外済み）",
+  
+  "personal": {
+    "last_name": "山田",
+    "first_name": "太郎",
+    "last_name_kana": "ヤマダ",
+    "first_name_kana": "タロウ",
+    "birth_date": "1985-04-15",
+    "gender": "male",
+    "phone": "090-1234-5678",
+    "email": "yamada.taro@example.com"
+  },
+  
+  "address": {
+    "postal_code": "150-0001",
+    "prefecture": "東京都",
+    "city": "渋谷区",
+    "town": "神南",
+    "block": "1-2-3",
+    "building": "サンプルマンション101号室"
+  },
+  
+  "bank_account": {
+    "_comment": "給付金の振込先口座情報",
+    "bank_name": "○○銀行",
+    "branch_name": "渋谷支店",
+    "account_type": "普通",
+    "account_number": "1234567",
+    "account_holder": "ヤマダ タロウ"
+  },
+  
+  "family": {
+    "household_members": 3,
+    "spouse": {
+      "exists": true,
+      "last_name": "山田",
+      "first_name": "花子",
+      "birth_date": "1987-08-20"
+    },
+    "children": [
+      {
+        "last_name": "山田",
+        "first_name": "一郎",
+        "birth_date": "2015-03-10",
+        "gender": "male",
+        "school": "渋谷区立○○小学校",
+        "grade": 5
+      }
+    ]
+  },
+  
+  "identification": {
+    "has_my_number_card": true,
+    "my_number": "",
+    "_my_number_note": "マイナンバーは非常に機密性が高い情報です。入力は慎重に行ってください。",
+    "drivers_license": {
+      "exists": true,
+      "number": "123456789012"
+    }
+  },
+  
+  "employment": {
+    "status": "employed",
+    "company_name": "株式会社サンプル",
+    "annual_income": 5000000
+  },
+  
+  "applied_subsidies": {
+    "_comment": "申請済みの給付金を記録（二重申請防止用）",
+    "completed": [],
+    "in_progress": [],
+    "rejected": []
+  }
+}
