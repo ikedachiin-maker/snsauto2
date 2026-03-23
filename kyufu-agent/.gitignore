@@ -1,0 +1,25 @@
+# 個人情報ファイル（絶対にコミットしないこと）
+config/user_profile.json
+
+# 申請ログ（個人情報を含む可能性）
+logs/
+screenshots/
+
+# 申請手順書（個人情報を含む）
+apply_*_instructions.md
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Node.js
+node_modules/
+
+# 環境変数
+.env
+.env.local
+
+# OS
+.DS_Store
+Thumbs.db

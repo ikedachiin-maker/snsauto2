@@ -9,3 +9,4 @@ nul
 node_modules/
 __pycache__/
 .claude/
+.next/
