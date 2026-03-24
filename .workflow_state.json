@@ -1,0 +1,216 @@
+{
+  "version": "2.0.0",
+  "meta": {
+    "workflowId": "user_request",
+    "strict": true,
+    "currentPhase": 1,
+    "startedAt": "2026-03-22T07:35:45.428Z",
+    "lastUpdated": "2026-03-24T07:29:44.686Z",
+    "autoMappedSkills": [
+      {
+        "name": "基本リサーチ（簡易調査）",
+        "required_skills": [
+          "research"
+        ],
+        "strict": false
+      }
+    ]
+  },
+  "intentContractRef": null,
+  "activeSkillId": null,
+  "activeSkillStepId": null,
+  "baseline": {
+    "files": {}
+  },
+  "registeredInputs": {
+    "referenceAssets": []
+  },
+  "locks": {
+    "referenceAssets": []
+  },
+  "evidence": {
+    "skills_used": {},
+    "read_log": [],
+    "approved_deviations": [],
+    "skillEvidence": [],
+    "skillEvidenceIndexByStepId": {},
+    "required_skills": {
+      "shorts-create": {
+        "requestedAt": "2026-03-23T09:52:38.744Z",
+        "used": false,
+        "autoMapped": true
+      },
+      "video-course": {
+        "requestedAt": "2026-03-23T13:22:58.351Z",
+        "used": false,
+        "autoMapped": true
+      },
+      "github": {
+        "requestedAt": "2026-03-24T07:29:44.686Z",
+        "used": false,
+        "autoMapped": false
+      },
+      "ikedachiin-maker": {
+        "requestedAt": "2026-03-24T07:29:44.686Z",
+        "used": false,
+        "autoMapped": false
+      },
+      "snsauto2": {
+        "requestedAt": "2026-03-24T07:29:44.686Z",
+        "used": false,
+        "autoMapped": false
+      },
+      "login": {
+        "requestedAt": "2026-03-23T11:20:30.024Z",
+        "used": false,
+        "autoMapped": false
+      },
+      "device": {
+        "requestedAt": "2026-03-23T11:20:30.024Z",
+        "used": false,
+        "autoMapped": false
+      },
+      "Users": {
+        "requestedAt": "2026-03-23T11:34:26.455Z",
+        "used": false,
+        "autoMapped": false
+      },
+      "apple": {
+        "requestedAt": "2026-03-23T11:34:26.455Z",
+        "used": false,
+        "autoMapped": false
+      },
+      "Desktop": {
+        "requestedAt": "2026-03-23T11:34:26.455Z",
+        "used": false,
+        "autoMapped": false
+      },
+      "snsauto": {
+        "requestedAt": "2026-03-23T11:34:26.455Z",
+        "used": false,
+        "autoMapped": false
+      },
+      "ikedachiinmaker": {
+        "requestedAt": "2026-03-23T11:42:15.190Z",
+        "used": false,
+        "autoMapped": false
+      },
+      "settings": {
+        "requestedAt": "2026-03-23T11:56:29.290Z",
+        "used": false,
+        "autoMapped": false
+      },
+      "personal-access-tokens": {
+        "requestedAt": "2026-03-23T11:56:29.290Z",
+        "used": false,
+        "autoMapped": false
+      },
+      "new": {
+        "requestedAt": "2026-03-23T11:56:29.290Z",
+        "used": false,
+        "autoMapped": false
+      },
+      "taiyo-style-lp": {
+        "requestedAt": "2026-03-24T06:14:27.373Z",
+        "used": false,
+        "autoMapped": true
+      },
+      "task-id": {
+        "requestedAt": "2026-03-23T13:42:35.540Z",
+        "used": false,
+        "autoMapped": false
+      },
+      "tool-use-id": {
+        "requestedAt": "2026-03-23T13:42:35.540Z",
+        "used": false,
+        "autoMapped": false
+      },
+      "private": {
+        "requestedAt": "2026-03-23T13:42:35.540Z",
+        "used": false,
+        "autoMapped": false
+      },
+      "tmp": {
+        "requestedAt": "2026-03-23T13:42:35.540Z",
+        "used": false,
+        "autoMapped": false
+      },
+      "claude-501": {
+        "requestedAt": "2026-03-23T13:42:35.540Z",
+        "used": false,
+        "autoMapped": false
+      },
+      "-Users-apple-Desktop-snsauto": {
+        "requestedAt": "2026-03-23T13:42:35.540Z",
+        "used": false,
+        "autoMapped": false
+      },
+      "237bac2f-4dc7-40c8-8c81-7f234adeb2e5": {
+        "requestedAt": "2026-03-23T13:42:35.540Z",
+        "used": false,
+        "autoMapped": false
+      },
+      "tasks": {
+        "requestedAt": "2026-03-23T13:42:35.540Z",
+        "used": false,
+        "autoMapped": false
+      },
+      "b2tytnwhb": {
+        "requestedAt": "2026-03-23T13:42:35.540Z",
+        "used": false,
+        "autoMapped": false
+      },
+      "output-file": {
+        "requestedAt": "2026-03-23T13:42:35.540Z",
+        "used": false,
+        "autoMapped": false
+      },
+      "status": {
+        "requestedAt": "2026-03-23T13:42:35.540Z",
+        "used": false,
+        "autoMapped": false
+      },
+      "summary": {
+        "requestedAt": "2026-03-23T13:42:35.540Z",
+        "used": false,
+        "autoMapped": false
+      },
+      "task-notification": {
+        "requestedAt": "2026-03-23T13:42:35.540Z",
+        "used": false,
+        "autoMapped": false
+      },
+      "Shudesu": {
+        "requestedAt": "2026-03-24T06:07:39.347Z",
+        "used": false,
+        "autoMapped": false
+      },
+      "line-harness-oss": {
+        "requestedAt": "2026-03-24T06:07:39.347Z",
+        "used": false,
+        "autoMapped": false
+      },
+      "research": {
+        "requestedAt": "2026-03-24T06:24:15.075Z",
+        "used": false,
+        "autoMapped": true
+      },
+      "omega-research": {
+        "requestedAt": "2026-03-24T06:23:34.577Z",
+        "used": false,
+        "autoMapped": false
+      }
+    }
+  },
+  "decisions": {
+    "assetReuse": []
+  },
+  "approvals": {
+    "deviations": []
+  },
+  "validations": {
+    "lastResults": []
+  },
+  "completed_phases": [],
+  "blockers": []
+}
