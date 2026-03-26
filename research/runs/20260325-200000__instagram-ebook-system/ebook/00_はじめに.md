@@ -1,8 +1,10 @@
-# 月1万円で8,400人に届く ― まだ誰も書いていない"認知広告"という最安集客ルート
+<div class="title-page">
+<h1 class="book-title">月1万円で8,400人に届く ― まだ誰も書いていない"認知広告"という最安集客ルート</h1>
+<p class="book-author">合同会社アドマーケティング代表社員 池田宜史</p>
+<p class="book-subtitle">Instagram × Meta広告 認知キャンペーン完全ガイド</p>
+</div>
 
-**合同会社アドマーケティング代表社員 池田宜史**
-
----
+<div style="page-break-before: always;"></div>
 
 ## はじめに ― 「認知広告は意味がない」は大きな誤解
 

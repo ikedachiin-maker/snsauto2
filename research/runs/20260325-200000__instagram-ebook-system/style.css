@@ -13,6 +13,41 @@
   @bottom-center { content: none; }
 }
 
+/* タイトルページ */
+.title-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 700px;
+  padding: 60px 20px;
+}
+
+.book-title {
+  font-size: 28pt;
+  font-weight: 900;
+  color: #1a365d;
+  line-height: 1.4;
+  border-bottom: none;
+  margin-top: 0;
+  page-break-before: avoid;
+}
+
+.book-author {
+  font-size: 14pt;
+  color: #2d3748;
+  margin-top: 40px;
+  font-weight: bold;
+}
+
+.book-subtitle {
+  font-size: 12pt;
+  color: #4a5568;
+  margin-top: 20px;
+  letter-spacing: 2px;
+}
+
 body {
   font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", sans-serif;
   font-size: 11pt;
