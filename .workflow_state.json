@@ -5,12 +5,12 @@
     "strict": true,
     "currentPhase": 1,
     "startedAt": "2026-03-22T07:35:45.428Z",
-    "lastUpdated": "2026-03-24T07:29:44.686Z",
+    "lastUpdated": "2026-03-27T08:39:03.119Z",
     "autoMappedSkills": [
       {
-        "name": "基本リサーチ（簡易調査）",
+        "name": "YouTube教材動画作成",
         "required_skills": [
-          "research"
+          "video-course"
         ],
         "strict": false
       }
@@ -41,7 +41,7 @@
         "autoMapped": true
       },
       "video-course": {
-        "requestedAt": "2026-03-23T13:22:58.351Z",
+        "requestedAt": "2026-03-27T07:43:05.976Z",
         "used": false,
         "autoMapped": true
       },
@@ -116,27 +116,27 @@
         "autoMapped": true
       },
       "task-id": {
-        "requestedAt": "2026-03-23T13:42:35.540Z",
+        "requestedAt": "2026-03-27T08:14:50.795Z",
         "used": false,
         "autoMapped": false
       },
       "tool-use-id": {
-        "requestedAt": "2026-03-23T13:42:35.540Z",
+        "requestedAt": "2026-03-27T08:14:50.795Z",
         "used": false,
         "autoMapped": false
       },
       "private": {
-        "requestedAt": "2026-03-23T13:42:35.540Z",
+        "requestedAt": "2026-03-27T08:14:50.795Z",
         "used": false,
         "autoMapped": false
       },
       "tmp": {
-        "requestedAt": "2026-03-23T13:42:35.540Z",
+        "requestedAt": "2026-03-27T08:14:50.795Z",
         "used": false,
         "autoMapped": false
       },
       "claude-501": {
-        "requestedAt": "2026-03-23T13:42:35.540Z",
+        "requestedAt": "2026-03-27T08:14:50.795Z",
         "used": false,
         "autoMapped": false
       },
@@ -151,7 +151,7 @@
         "autoMapped": false
       },
       "tasks": {
-        "requestedAt": "2026-03-23T13:42:35.540Z",
+        "requestedAt": "2026-03-27T08:14:50.795Z",
         "used": false,
         "autoMapped": false
       },
@@ -161,22 +161,22 @@
         "autoMapped": false
       },
       "output-file": {
-        "requestedAt": "2026-03-23T13:42:35.540Z",
+        "requestedAt": "2026-03-27T08:14:50.795Z",
         "used": false,
         "autoMapped": false
       },
       "status": {
-        "requestedAt": "2026-03-23T13:42:35.540Z",
+        "requestedAt": "2026-03-27T08:14:50.795Z",
         "used": false,
         "autoMapped": false
       },
       "summary": {
-        "requestedAt": "2026-03-23T13:42:35.540Z",
+        "requestedAt": "2026-03-27T08:14:50.795Z",
         "used": false,
         "autoMapped": false
       },
       "task-notification": {
-        "requestedAt": "2026-03-23T13:42:35.540Z",
+        "requestedAt": "2026-03-27T08:14:50.795Z",
         "used": false,
         "autoMapped": false
       },
@@ -197,6 +197,71 @@
       },
       "omega-research": {
         "requestedAt": "2026-03-24T06:23:34.577Z",
+        "used": false,
+        "autoMapped": false
+      },
+      "drive": {
+        "requestedAt": "2026-03-27T07:43:05.976Z",
+        "used": false,
+        "autoMapped": false
+      },
+      "file": {
+        "requestedAt": "2026-03-27T07:43:05.976Z",
+        "used": false,
+        "autoMapped": false
+      },
+      "d": {
+        "requestedAt": "2026-03-27T08:39:03.119Z",
+        "used": false,
+        "autoMapped": false
+      },
+      "1y4CVVVim6_IluL9Ol3f5LZelI-2z-iNz": {
+        "requestedAt": "2026-03-27T07:43:05.976Z",
+        "used": false,
+        "autoMapped": false
+      },
+      "view": {
+        "requestedAt": "2026-03-27T07:43:05.976Z",
+        "used": false,
+        "autoMapped": false
+      },
+      "-Users-apple-taisun-agent--claude-worktrees-elegant-mayer": {
+        "requestedAt": "2026-03-27T08:14:50.795Z",
+        "used": false,
+        "autoMapped": false
+      },
+      "d82a80b1-3201-4d4a-88fb-2f8f34df8849": {
+        "requestedAt": "2026-03-27T08:14:50.795Z",
+        "used": false,
+        "autoMapped": false
+      },
+      "b5jugpg53": {
+        "requestedAt": "2026-03-27T08:14:42.274Z",
+        "used": false,
+        "autoMapped": false
+      },
+      "bz8n664qb": {
+        "requestedAt": "2026-03-27T08:14:50.795Z",
+        "used": false,
+        "autoMapped": false
+      },
+      "docs": {
+        "requestedAt": "2026-03-27T08:39:03.119Z",
+        "used": false,
+        "autoMapped": false
+      },
+      "document": {
+        "requestedAt": "2026-03-27T08:39:03.119Z",
+        "used": false,
+        "autoMapped": false
+      },
+      "1NeeX8LtdCfwLc1jegGod691xRdsAWED-vBB3yoM0osw": {
+        "requestedAt": "2026-03-27T08:39:03.119Z",
+        "used": false,
+        "autoMapped": false
+      },
+      "edit": {
+        "requestedAt": "2026-03-27T08:39:03.119Z",
         "used": false,
         "autoMapped": false
       }

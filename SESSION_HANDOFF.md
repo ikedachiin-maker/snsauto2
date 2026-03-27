@@ -2,8 +2,8 @@
 
 > **CRITICAL**: 次のセッションは必ずこのファイルを読んでから作業を開始すること
 
-**最終更新**: 2026-03-23T13:42:35.546Z
-**作業ディレクトリ**: /Users/apple/Desktop/snsauto
+**最終更新**: 2026-03-27T08:39:16.322Z
+**作業ディレクトリ**: /Users/apple/taisun_agent/.claude/worktrees/elegant-mayer
 
 ## 既存スクリプト（MUST READ）
 
@@ -13,15 +13,10 @@
 └─────────────────────────────────────────────────────────┘
 ```
 
-- `google-flow-mcp/test-generate.js` (1.6KB, 2026/2/23 10:23:44)
-- `taisun_agent/agent_os/runner.py` (7.0KB, 2026/2/4 14:31:04)
-- `taisun_agent/generate_10_slides.py` (2.3KB, 2026/2/23 0:15:21)
-- `taisun_agent/generate_full_guide.py` (5.0KB, 2026/2/23 0:15:21)
-- `taisun_agent/generate_install_slides.py` (2.7KB, 2026/2/23 0:15:21)
-- `taisun_agent/scripts/generate-release-approval.sh` (11.4KB, 2026/2/23 0:15:21)
-- `taisun_agent/scripts/ollama-process-transcript.sh` (6.2KB, 2026/2/4 14:31:04)
-- `taisun_agent/scripts/text_preprocessor.py` (11.2KB, 2026/2/23 0:15:21)
-- `taisun_agent/tests/test_runner_retry_stop.py` (1.9KB, 2026/2/4 14:31:04)
+- `ebook-meta-ads/generate-flow.js` (6.9KB, 2026/3/27 16:37:56)
+- `ebook-meta-ads/generate-images.js` (25.2KB, 2026/3/27 16:37:56)
+- `ebook-meta-ads/generate-tanabota.js` (5.6KB, 2026/3/27 16:37:56)
+- `google-flow-mcp/test-generate.js` (1.6KB, 2026/3/27 16:37:56)
 
 ## 次のセッションへの指示
 
