@@ -1,0 +1,16 @@
+# 環境変数・認証情報
+.env
+
+# 投稿状態・セッション（ローカル固有）
+data/
+
+# 生成済み記事・画像（大容量）
+output/
+covers/
+images/
+
+# Node.js
+node_modules/
+
+# macOS
+.DS_Store

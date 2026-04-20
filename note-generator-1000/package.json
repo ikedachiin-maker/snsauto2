@@ -1,0 +1,32 @@
+{
+  "name": "note-generator-1000",
+  "version": "1.0.0",
+  "description": "1000本の売れるnoteを自動生成するツール",
+  "type": "module",
+  "scripts": {
+    "gen-titles": "node scripts/gen-titles.mjs",
+    "generate": "node scripts/generate.mjs",
+    "check": "node scripts/quality-check.mjs",
+    "rewrite": "node scripts/rewrite.mjs",
+    "all": "npm run generate && npm run check && npm run rewrite",
+    "preview": "node scripts/preview-server.mjs",
+    "cover": "node scripts/generate-cover.mjs",
+    "cover:limit": "node scripts/generate-cover.mjs --limit=10",
+    "cover:formatted": "node scripts/generate-cover-html.mjs --formatted-only",
+    "cover:html": "node scripts/generate-cover-html.mjs",
+    "body:formatted": "node scripts/generate-cover-html.mjs --body --formatted-only",
+    "images:all": "node scripts/generate-cover-html.mjs --all --formatted-only",
+    "post": "node scripts/post-to-note.mjs",
+    "post:auto": "node scripts/post-to-note.mjs --auto",
+    "schedule": "node scripts/post-scheduler.mjs",
+    "reformat": "node scripts/reformat-articles.mjs",
+    "images": "node scripts/generate-images.mjs",
+    "images:limit": "node scripts/generate-images.mjs --limit=10",
+    "update-cta": "node scripts/update-cta.mjs",
+    "save-session": "node scripts/save-session.mjs"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
+    "playwright": "^1.40.0"
+  }
+}
