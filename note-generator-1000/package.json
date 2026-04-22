@@ -23,7 +23,8 @@
     "images": "node scripts/generate-images.mjs",
     "images:limit": "node scripts/generate-images.mjs --limit=10",
     "update-cta": "node scripts/update-cta.mjs",
-    "save-session": "node scripts/save-session.mjs"
+    "save-session": "node scripts/save-session.mjs",
+    "gen-claude-code": "node scripts/gen-claude-code-titles.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.39.0",

@@ -260,8 +260,17 @@ async function runPost() {
   const pending = allFiles.filter(f => !postedFiles.has(f));
 
   if (pending.length === 0) {
-    console.log('\n✅ フォーマット済み46本の投稿が完了しました。スケジューラーを停止します。');
-    process.exit(0);
+    console.log('\n✅ フォーマット済み46本の投稿が完了しました。');
+
+    // 未フォーマット記事を自動削除
+    const allFiles = fs.readdirSync(OUTPUT_DIR).filter(f => f.endsWith('.md'));
+    const unformatted = allFiles.filter(f => !isFormatted(path.join(OUTPUT_DIR, f)));
+    if (unformatted.length > 0) {
+      console.log(`  未フォーマット記事 ${unformatted.length}本を削除中...`);
+      unformatted.forEach(f => fs.unlinkSync(path.join(OUTPUT_DIR, f)));
+      console.log(`  ✅ ${unformatted.length}本を削除しました。次のバッチをお待ちください。`);
+    }
+    return;
   }
 
   const file = pending[0];
